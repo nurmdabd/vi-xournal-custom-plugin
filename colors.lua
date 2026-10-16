@@ -9,20 +9,3 @@ greenColor  = 0x008000
 cyanColor   = 0x8be9fd
 blueColor   = 0x6272a4
 purpleColor = 0xbd93f9
-
-
-
---blackColor
---whiteColor
---greenColor
---lightGreenColor
---blueColor
---lightBlueColor
---orangeColor
---redColor
---yellowColor
---purpleColor
---pinkColor
---magentaColor
-
-

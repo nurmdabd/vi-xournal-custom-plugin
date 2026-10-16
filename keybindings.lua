@@ -396,10 +396,7 @@ keybindings = {
     buttons     = {"d"},
     modes       = {"page"},
     call        = function ()
-      result = app.msgbox("Do you really want to delete this page?", {[1] = "Yes", [2] = "No"})
-      if result == 1 then
-        clickDeletePage()
-      end
+      confirm("Do you really want to delete this page?", "confirmDeletePage")
     end
   },
   moveUp = {
@@ -431,10 +428,7 @@ keybindings = {
     buttons     = {"x"},
     modes       = {"page"},
     call        = function ()
-      result = app.msgbox("Do you really want to delete this layer?", {[1] = "Yes", [2] = "No"})
-      if result == 1 then
-        clickDeleteLayer()
-      end
+      confirm("Do you really want to delete this layer?", "confirmDeleteLayer")
     end
   },
   newLayer = {
@@ -528,7 +522,7 @@ keybindings = {
     buttons     = {"a"},
     modes       = {"navigation"},
     call        = function()
-      cur = currentPage()
+      local cur = currentPage()
       goToPage(lastPage)
       lastPage = cur
     end
@@ -569,7 +563,7 @@ keybindings = {
     description = "Save file as ...",
     buttons     = {"<Shift>s", "<Shift>w"},
     modes       = {"file"},
-    call        = clickSave
+    call        = clickSaveAs
   },
   open = {
     description = "Open file",
@@ -608,4 +602,23 @@ function cleanShape()
   clickSpline(false)
   clickFill(false)
   clickPlain()
+end
+
+-- asks a yes/no question and calls the global function named `callback`
+-- with the pressed button (1 = Yes)
+function confirm(message, callback)
+  if app.openDialog then
+    app.openDialog(message, {"Yes", "No"}, callback)
+  else
+    -- Xournal++ < 1.2 has no openDialog; msgbox is deprecated in newer versions
+    _G[callback](app.msgbox(message, {[1] = "Yes", [2] = "No"}))
+  end
+end
+
+function confirmDeletePage(button)
+  if button == 1 then clickDeletePage() end
+end
+
+function confirmDeleteLayer(button)
+  if button == 1 then clickDeleteLayer() end
 end
