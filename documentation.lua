@@ -54,6 +54,7 @@ end
 -- letters first, then named keys (Space, >, +, ...)
 local function sortName(key)
   local _, base = splitKey(key)
+  base = base:gsub("%d+", function(n) return string.format("%03d", tonumber(n)) end)  -- F2 before F10
   return KEY_NAMES[base] and ("~" .. base) or base
 end
 
@@ -125,8 +126,8 @@ Enter a mode with **Shift** to make it **sticky**: it stays active until you pre
 A key that does nothing in a one-shot mode acts as it would in tool mode,
 a one-shot mode ends by itself after ]] .. MODE_TIMEOUT .. [[ seconds without a key press,
 and `t` returns to tool mode from every mode.
-While typing in a text box, use **Alt** + a color key (listed under tool mode),
-because plain letters are typed into the text.
+While typing in a text box, change the color with **Ctrl + F-keys** (listed under
+tool mode), because plain letters are typed into the text.
 
 ]])
 

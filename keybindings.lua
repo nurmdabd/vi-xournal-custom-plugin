@@ -773,23 +773,23 @@ keybindings = {
 }
 
 -- colors that also work while typing in a text box: plain letters are typed
--- into the text, Alt + letter is not. Same letters as in color mode, except
--- where Alt + letter opens a menu (Alt + f, e, v, n, j, t, p, h).
+-- into the text and the text box also swallows Alt + letter, but Ctrl + F-keys
+-- reach the plugin
 local typingColors = {
-  {"<Alt>x",        "Black",       "blackColor"},
-  {"<Alt>w",        "White",       "whiteColor"},
-  {"<Alt>a",        "Gray",        "grayColor"},
-  {"<Alt>g",        "Light green", "lightGreenColor"},
-  {"<Alt><Shift>g", "Green",       "greenColor"},
-  {"<Alt>b",        "Light blue",  "lightBlueColor"},
-  {"<Alt>u",        "Blue",        "blueColor"},
-  {"<Alt>o",        "Orange",      "orangeColor"},
-  {"<Alt>r",        "Red",         "redColor"},
-  {"<Alt>y",        "Yellow",      "yellowColor"},
-  {"<Alt>s",        "Purple",      "purpleColor"},
-  {"<Alt>q",        "Pink",        "pinkColor"},
-  {"<Alt>m",        "Magenta",     "magentaColor"},
-  {"<Alt>d",        "Brown",       "brownColor"},
+  {"<Ctrl>F1",        "Black",       "blackColor"},
+  {"<Ctrl>F2",        "White",       "whiteColor"},
+  {"<Ctrl>F3",        "Gray",        "grayColor"},
+  {"<Ctrl>F4",        "Light green", "lightGreenColor"},
+  {"<Ctrl>F5",        "Green",       "greenColor"},
+  {"<Ctrl>F6",        "Light blue",  "lightBlueColor"},
+  {"<Ctrl>F7",        "Blue",        "blueColor"},
+  {"<Ctrl>F8",        "Red",         "redColor"},
+  {"<Ctrl>F9",        "Yellow",      "yellowColor"},
+  {"<Ctrl>F10",       "Purple",      "purpleColor"},
+  {"<Ctrl>F11",       "Pink",        "pinkColor"},
+  {"<Ctrl>F12",       "Magenta",     "magentaColor"},
+  {"<Ctrl><Shift>F1", "Brown",       "brownColor"},
+  {"<Ctrl><Shift>F2", "Orange",      "orangeColor"},
 }
 for _, c in ipairs(typingColors) do
   local key, description, color = c[1], c[2], c[3]

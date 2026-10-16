@@ -9,8 +9,8 @@ Enter a mode with **Shift** to make it **sticky**: it stays active until you pre
 A key that does nothing in a one-shot mode acts as it would in tool mode,
 a one-shot mode ends by itself after 5 seconds without a key press,
 and `t` returns to tool mode from every mode.
-While typing in a text box, use **Alt** + a color key (listed under tool mode),
-because plain letters are typed into the text.
+While typing in a text box, change the color with **Ctrl + F-keys** (listed under
+tool mode), because plain letters are typed into the text.
 
 | Mode | Enter | Sticky |
 |---|---|---|
@@ -30,34 +30,34 @@ because plain letters are typed into the text.
 ## Tool mode (`t`)
 
 * Bigger text font: `Ctrl+]`
-* Black: `Alt+x`
-* Blue: `Alt+u`
-* Brown: `Alt+d`
+* Black: `Ctrl+F1`
+* Blue: `Ctrl+F7`
+* Brown: `Ctrl+Shift+F1`
 * Compass: `Shift+o`
 * Default tool: `d`
 * Eraser: `e`
-* Gray: `Alt+a`
-* Green: `Alt+Shift+g`
+* Gray: `Ctrl+F3`
+* Green: `Ctrl+F5`
 * Hand: `u`
 * Highlighter: `g`
 * Image: `i`
-* Light blue: `Alt+b`
-* Light green: `Alt+g`
-* Magenta: `Alt+m`
+* Light blue: `Ctrl+F6`
+* Light green: `Ctrl+F4`
+* Magenta: `Ctrl+F12`
 * New page after: `a`
-* Orange: `Alt+o`
+* Orange: `Ctrl+Shift+F2`
 * Pen: `w`
-* Pink: `Alt+q`
-* Purple: `Alt+s`
-* Red: `Alt+r`
+* Pink: `Ctrl+F11`
+* Purple: `Ctrl+F10`
+* Red: `Ctrl+F8`
 * Redo: `y`
 * Setsquare: `Shift+e`
 * Smaller text font: `Ctrl+[`
 * Text: `x`
 * Text font: `` Ctrl+` ``
 * Undo: `z`
-* White: `Alt+w`
-* Yellow: `Alt+y`
+* White: `Ctrl+F2`
+* Yellow: `Ctrl+F9`
 * Zoom in: `>`, `+`
 * Zoom out: `<`, `-`
 * Zoom to fit: `o`
@@ -188,58 +188,58 @@ because plain letters are typed into the text.
 
 | Key | Tool | Color | Shape | Linestyle | Page | File | More tool | Navigation | Visual | Resize |
 |---|---|---|---|---|---|---|---|---|---|---|
+| `Ctrl+F1` | Black |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F1` | Brown |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F2` | White |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F2` | Orange |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F3` | Gray |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F4` | Light green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F5` | Green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F6` | Light blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F7` | Blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F8` | Red |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F9` | Yellow |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F10` | Purple |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F11` | Pink |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F12` | Magenta |  |  |  |  |  |  |  |  |  |
 | `a` | New page after | Gray | Arrow | Plain | New page after | Annotate PDF |  |  | Select object | Very fine |
-| `Alt+a` | Gray |  |  |  |  |  |  |  |  |  |
 | `Shift+a` |  |  |  |  | New page before |  |  |  |  |  |
 | `b` | Page mode | Light blue |  |  |  |  |  |  |  |  |
-| `Alt+b` | Light blue |  |  |  |  |  |  |  |  |  |
 | `Shift+b` | Sticky page mode | Blue |  |  |  |  |  |  |  |  |
 | `c` | Color mode | Orange | Coordinate system |  | Copy page |  | Compass |  |  |  |
 | `Shift+c` | Sticky color mode |  |  |  |  |  |  |  |  |  |
 | `d` | Default tool |  | Double arrow | Dotted | Move page down |  |  | Go to bottom |  | Medium |
-| `Alt+d` | Brown |  |  |  |  |  |  |  |  |  |
 | `Shift+d` |  |  |  |  |  |  |  |  |  | Thick |
 | `e` | Eraser | Green | Ellipse |  | New page at end | Export as PDF | Setsquare | Go to last page | Select region |  |
 | `Shift+e` | Setsquare |  |  |  |  |  |  |  | Select multilayer region |  |
 | `f` | File mode |  | Fill | Dash-dotted |  |  |  | Go to first page |  | Thick |
 | `Shift+f` | Sticky file mode |  |  |  |  |  |  | Go to last page |  |  |
 | `g` | Highlighter | Light green | Shape recogniser |  | Graph background |  |  |  |  | Very thick |
-| `Alt+g` | Light green |  |  |  |  |  |  |  |  |  |
 | `Shift+g` |  | Green |  |  | Isometric graph background |  |  |  |  |  |
-| `Alt+Shift+g` | Green |  |  |  |  |  |  |  |  |  |
 | `i` | Image | Pink |  |  |  |  |  |  |  |  |
 | `m` | More tool mode | Magenta |  |  |  |  |  |  |  | Medium |
-| `Alt+m` | Magenta |  |  |  |  |  |  |  |  |  |
 | `Shift+m` | Sticky more tool mode |  |  |  |  |  |  |  |  | Thick |
 | `n` | Navigation mode | Brown |  |  |  | New file |  | Scroll page down |  |  |
 | `Shift+n` | Sticky navigation mode |  |  |  |  |  |  | Next annotated page |  |  |
 | `o` | Zoom to fit | Orange |  |  | Dotted background | Open file |  |  | Select object |  |
-| `Alt+o` | Orange |  |  |  |  |  |  |  |  |  |
 | `Shift+o` | Compass |  |  |  | Isometric dotted background |  |  |  |  |  |
 | `p` | Page mode | Purple | Spline | Plain | Plain background | Print |  | Scroll page up |  |  |
 | `Shift+p` | Sticky page mode |  |  |  |  |  |  | Previous annotated page |  |  |
 | `q` | Linestyle mode | Pink | Spline |  |  | Quit |  |  |  |  |
-| `Alt+q` | Pink |  |  |  |  |  |  |  |  |  |
 | `Shift+q` | Sticky linestyle mode |  |  |  |  |  |  |  |  |  |
 | `r` | Resize mode | Red | Rectangle |  | Ruled background |  |  |  | Select rectangle | Medium |
-| `Alt+r` | Red |  |  |  |  |  |  |  |  |  |
 | `Shift+r` | Sticky resize mode |  |  |  |  |  |  |  | Select multilayer rectangle | Thick |
 | `s` | Shape mode | Purple | Ruler | Dashed | Staves background | Save file | Setsquare | Scroll page down | Vertical space | Fine |
-| `Alt+s` | Purple |  |  |  |  |  |  |  |  |  |
 | `Shift+s` | Sticky shape mode |  |  |  |  | Save file as |  |  |  |  |
 | `t` | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode |
 | `u` | Hand | Blue | Ruler |  | Move page up |  |  | Go to top |  |  |
-| `Alt+u` | Blue |  |  |  |  |  |  |  |  |  |
 | `v` | Visual mode |  |  |  | Ruled with vertical line background |  |  | Go back to last visited page | Select rectangle |  |
 | `Shift+v` | Sticky visual mode |  |  |  |  |  |  |  | Select multilayer rectangle |  |
 | `w` | Pen | White |  |  |  | Save file |  | Scroll page up |  |  |
-| `Alt+w` | White |  |  |  |  |  |  |  |  |  |
 | `Shift+w` |  |  |  |  |  | Save file as |  |  |  |  |
 | `x` | Text | Black |  |  | Delete page |  | LaTeX | Layer up |  |  |
-| `Alt+x` | Black |  |  |  |  |  |  |  |  |  |
 | `Shift+x` |  | Gray |  |  |  |  |  |  |  |  |
 | `y` | Redo | Yellow |  |  | New layer |  |  | Layer down |  |  |
-| `Alt+y` | Yellow |  |  |  |  |  |  |  |  |  |
 | `Shift+y` |  |  |  |  | Delete layer |  |  |  |  |  |
 | `z` | Undo |  |  |  |  |  |  |  |  |  |
 | `Ctrl+[` | Smaller text font |  |  |  |  |  |  |  |  |  |

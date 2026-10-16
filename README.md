@@ -58,10 +58,12 @@ The **color** mode is used to switch between the different colors,
 _black_, _white_, _gray_, _light green_, _green_, _light blue_, _blue_,
 _orange_, _red_, _yellow_, _purple_, _pink_, _magenta_, _brown_.
 
-While typing in a text box, letters are typed into the text, so color mode
-cannot be used. Use **Alt** + the color mode letter instead (`Alt+r` red,
-`Alt+b` light blue, ...). Exceptions: green is `Alt+Shift+g` and brown is
-`Alt+d`, because Alt + e, n (and f, v, j, t, p, h) open the menus.
+While typing in a text box, letters are typed into the text (and the text box
+also swallows Alt + letter), so color mode cannot be used. Use **Ctrl + F-keys**
+instead: `Ctrl+F1` black, `Ctrl+F2` white, `Ctrl+F3` gray, `Ctrl+F4` light green,
+`Ctrl+F5` green, `Ctrl+F6` light blue, `Ctrl+F7` blue, `Ctrl+F8` red,
+`Ctrl+F9` yellow, `Ctrl+F10` purple, `Ctrl+F11` pink, `Ctrl+F12` magenta,
+`Ctrl+Shift+F1` brown, `Ctrl+Shift+F2` orange. They work outside text boxes too.
 This changes the color of the whole text box. While typing, Xournal++ itself
 also offers `Ctrl+B` (bold) and `Ctrl++` / `Ctrl+-` (font size).
 
