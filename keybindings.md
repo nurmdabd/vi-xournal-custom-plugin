@@ -121,3 +121,52 @@
 * Very Fine: `e`
 * Very thick: `v`
 
+## All keys by mode
+
+| Key | tool | color | shape | linestyle | page | file | navigation | visual | resize |
+|---|---|---|---|---|---|---|---|---|---|
+| `a` | NewAfter | Purple | Arrow | DashDotted | New After | Annotate PDF | Go back to last visited page |  |  |
+| `<Shift>a` |  |  |  |  | New Before |  |  |  |  |
+| `b` | Page mode | Blue | Spline |  | Isometric dotted background |  | Go to bottom |  |  |
+| `<Shift>b` | Sticky page mode |  |  |  |  |  | Go to top |  |  |
+| `c` | Color mode | Cyan | Rectangle |  | copyPage |  |  |  |  |
+| `<Shift>c` | Sticky color mode |  |  |  |  |  |  |  |  |
+| `d` | Undo |  |  | Dashed | DeletePage |  |  |  |  |
+| `e` | Eraser |  | Ellipse |  |  | Export as PDF | Go to last page | Select Region | Very Fine |
+| `f` | File mode |  | Fill |  | Ruled background | Open file |  |  | Fine |
+| `<Shift>f` | Sticky file mode |  |  |  |  |  |  |  |  |
+| `g` |  | Green |  |  | Graph background |  | Go to first page |  |  |
+| `<Shift>g` |  |  |  |  |  |  | Go to last page |  |  |
+| `greater` | Zoom in |  |  |  |  |  |  |  |  |
+| `<Shift>greater` | Zoom in |  |  |  |  |  |  |  |  |
+| `h` | Highlighter |  |  | DashDotted |  |  |  |  | Thick |
+| `i` | Tex |  |  |  |  |  |  |  |  |
+| `<Shift>i` | Text |  |  |  |  |  |  |  |  |
+| `k` | Selection |  |  |  |  |  |  |  |  |
+| `l` | Linestyle mode |  |  | Plain |  |  |  |  |  |
+| `<Shift>l` | Sticky linestyle mode |  |  |  |  |  |  |  |  |
+| `less` | Zoom out |  |  |  |  |  |  |  |  |
+| `m` |  |  |  |  |  |  |  |  | Medium |
+| `minus` | Zoom out |  |  |  |  |  |  |  |  |
+| `n` | Navigation mode |  |  |  | Plain background |  |  |  |  |
+| `<Shift>n` | Sticky navigation mode |  |  |  |  |  |  |  |  |
+| `o` | Annotate PDF | Orange |  | Dotted |  | Annotate PDF |  | Select Object |  |
+| `p` | Page mode | Purple |  | Plain |  |  |  |  |  |
+| `<Shift>p` | Sticky page mode |  |  |  |  |  |  |  |  |
+| `plus` | Zoom in |  |  |  |  |  |  |  |  |
+| `<Shift>plus` | Zoom in |  |  |  |  |  |  |  |  |
+| `q` | Linestyle mode | Pink |  |  |  |  |  |  |  |
+| `r` | Resize mode | Red | Rectangle |  | Isometric graph background |  |  | Select Rectangle | Medium |
+| `s` | Shape mode |  | Ruler |  | Move Down | Save file | Scroll page down |  |  |
+| `<Shift>s` | Sticky shape mode |  |  |  |  | Save file as ... |  |  |  |
+| `space` | Hand |  |  |  |  |  |  |  |  |
+| `t` | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode |
+| `<Shift>t` | Text |  |  |  |  |  |  |  |  |
+| `u` | Undo |  |  |  |  |  |  |  |  |
+| `v` | Visual mode |  |  |  | Dotted background |  |  | Select Rectangle | Very thick |
+| `<Shift>v` | Sticky visual mode |  |  |  |  |  |  |  |  |
+| `w` | Pen | White |  |  | Move Up | Save file | Scroll page up |  |  |
+| `<Shift>w` |  |  |  |  |  | Save file as ... |  |  |  |
+| `x` | Delete | Black |  |  | Delete Layer |  | Layer Down |  |  |
+| `y` | Redo | Yellow |  |  | NewLayer |  | Layer up |  |  |
+| `z` | Undo |  |  |  |  |  |  |  |  |
