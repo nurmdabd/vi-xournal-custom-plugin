@@ -29,179 +29,152 @@ tool mode), because plain letters are typed into the text.
 
 ## Tool mode (`t`)
 
-* Bigger text font: `Ctrl+]`
-* Black: `Ctrl+F1`
-* Blue: `Ctrl+F7`
-* Brown: `Ctrl+Shift+F1`
-* Compass: `Shift+o`
-* Default tool: `d`
-* Eraser: `e`
-* Gray: `Ctrl+F3`
-* Green: `Ctrl+F5`
-* Hand: `u`
-* Highlighter: `g`
-* Image: `i`
-* Light blue: `Ctrl+F6`
-* Light green: `Ctrl+F4`
-* Magenta: `Ctrl+F12`
-* New page after: `a`
-* Orange: `Ctrl+Shift+F2`
-* Pen: `w`
-* Pink: `Ctrl+F11`
-* Purple: `Ctrl+F10`
-* Red: `Ctrl+F8`
-* Redo: `y`
-* Setsquare: `Shift+e`
-* Smaller text font: `Ctrl+[`
-* Text: `x`
-* Text font: `` Ctrl+` ``
-* Undo: `z`
-* White: `Ctrl+F2`
-* Yellow: `Ctrl+F9`
-* Zoom in: `>`, `+`
-* Zoom out: `<`, `-`
-* Zoom to fit: `o`
+| Action | Keys | Action | Keys |
+|---|---|---|---|
+| Bigger text font | `Ctrl+]` | Setsquare | `Shift+e` |
+| Compass | `Shift+o` | Smaller text font | `Ctrl+[` |
+| Default tool | `d` | Text | `x` |
+| Eraser | `e` | Text font | `` Ctrl+` `` |
+| Hand | `u` | Undo | `z` |
+| Highlighter | `g` | Zoom in | `>`, `+` |
+| Image | `i` | Zoom out | `<`, `-` |
+| New page after | `a` | Zoom to fit | `o` |
+| Pen | `w` | Colors while typing | `Ctrl` + F-keys, see [Color mode](#color-mode) |
+| Redo | `y` |  |  |
 
 <a id="color-mode"></a>
 
 ## Color mode (`c`, sticky `Shift+c`)
 
-* Black: `x`
-* Blue: `Shift+b`, `u`
-* Brown: `n`
-* Gray: `a`, `Shift+x`
-* Green: `e`, `Shift+g`
-* Light blue: `b`
-* Light green: `g`
-* Magenta: `m`
-* Orange: `c`, `o`
-* Pink: `i`, `q`
-* Purple: `p`, `s`
-* Red: `r`
-* White: `w`
-* Yellow: `y`
+| Color | In color mode | While typing |
+|---|---|---|
+| Black | `x` | `Ctrl+F1` |
+| White | `w` | `Ctrl+F2` |
+| Gray | `a`, `Shift+x` | `Ctrl+F3` |
+| Light green | `g` | `Ctrl+F4` |
+| Green | `e`, `Shift+g` | `Ctrl+F5` |
+| Light blue | `b` | `Ctrl+F6` |
+| Blue | `Shift+b`, `u` | `Ctrl+F7` |
+| Red | `r` | `Ctrl+F8` |
+| Yellow | `y` | `Ctrl+F9` |
+| Purple | `p`, `s` | `Ctrl+F10` |
+| Pink | `i`, `q` | `Ctrl+F11` |
+| Magenta | `m` | `Ctrl+F12` |
+| Brown | `n` | `Ctrl+Shift+F1` |
+| Orange | `c`, `o` | `Ctrl+Shift+F2` |
+
+The *while typing* keys also work outside text boxes, in tool mode.
 
 <a id="shape-mode"></a>
 
 ## Shape mode (`s`, sticky `Shift+s`)
 
-* Arrow: `a`
-* Coordinate system: `c`
-* Double arrow: `d`
-* Ellipse: `e`
-* Fill: `f`
-* Rectangle: `r`
-* Ruler: `s`, `u`
-* Shape recogniser: `g`
-* Spline: `p`, `q`
+| Action | Keys |
+|---|---|
+| Arrow | `a` |
+| Coordinate system | `c` |
+| Double arrow | `d` |
+| Ellipse | `e` |
+| Fill | `f` |
+| Rectangle | `r` |
+| Ruler | `s`, `u` |
+| Shape recogniser | `g` |
+| Spline | `p`, `q` |
 
 <a id="linestyle-mode"></a>
 
 ## Linestyle mode (`q`, sticky `Shift+q`)
 
-* Dash-dotted: `f`
-* Dashed: `s`
-* Dotted: `d`
-* Plain: `a`, `p`
+| Action | Keys |
+|---|---|
+| Dash-dotted | `f` |
+| Dashed | `s` |
+| Dotted | `d` |
+| Plain | `a`, `p` |
 
 <a id="page-mode"></a>
 
 ## Page mode (`b`, `p`, sticky `Shift+b`, `Shift+p`)
 
-* Copy page: `c`
-* Delete layer: `Shift+y`
-* Delete page: `x`
-* Dotted background: `o`
-* Graph background: `g`
-* Isometric dotted background: `Shift+o`
-* Isometric graph background: `Shift+g`
-* Move page down: `d`
-* Move page up: `u`
-* New layer: `y`
-* New page after: `a`
-* New page at end: `e`
-* New page before: `Shift+a`
-* Plain background: `p`
-* Ruled background: `r`
-* Ruled with vertical line background: `v`
-* Staves background: `s`
+| Action | Keys | Action | Keys |
+|---|---|---|---|
+| Copy page | `c` | New layer | `y` |
+| Delete layer | `Shift+y` | New page after | `a` |
+| Delete page | `x` | New page at end | `e` |
+| Dotted background | `o` | New page before | `Shift+a` |
+| Graph background | `g` | Plain background | `p` |
+| Isometric dotted background | `Shift+o` | Ruled background | `r` |
+| Isometric graph background | `Shift+g` | Ruled with vertical line background | `v` |
+| Move page down | `d` | Staves background | `s` |
+| Move page up | `u` |  |  |
 
 <a id="file-mode"></a>
 
 ## File mode (`f`, sticky `Shift+f`)
 
-* Annotate PDF: `a`
-* Export as PDF: `e`
-* New file: `n`
-* Open file: `o`
-* Print: `p`
-* Quit: `q`
-* Save file: `s`, `w`
-* Save file as: `Shift+s`, `Shift+w`
+| Action | Keys |
+|---|---|
+| Annotate PDF | `a` |
+| Export as PDF | `e` |
+| New file | `n` |
+| Open file | `o` |
+| Print | `p` |
+| Quit | `q` |
+| Save file | `s`, `w` |
+| Save file as | `Shift+s`, `Shift+w` |
 
 <a id="moretool-mode"></a>
 
 ## More tool mode (`m`, sticky `Shift+m`)
 
-* Compass: `c`
-* LaTeX: `x`
-* Setsquare: `e`, `s`
+| Action | Keys |
+|---|---|
+| Compass | `c` |
+| LaTeX | `x` |
+| Setsquare | `e`, `s` |
 
 <a id="navigation-mode"></a>
 
 ## Navigation mode (`n`, sticky `Shift+n`)
 
-* Go back to last visited page: `v`
-* Go to bottom: `d`
-* Go to first page: `f`
-* Go to last page: `e`, `Shift+f`
-* Go to top: `u`
-* Layer down: `y`
-* Layer up: `x`
-* Next annotated page: `Shift+n`
-* Previous annotated page: `Shift+p`
-* Scroll page down: `n`, `s`
-* Scroll page up: `p`, `w`
+| Action | Keys | Action | Keys |
+|---|---|---|---|
+| Go back to last visited page | `v` | Layer up | `x` |
+| Go to bottom | `d` | Next annotated page | `Shift+n` |
+| Go to first page | `f` | Previous annotated page | `Shift+p` |
+| Go to last page | `e`, `Shift+f` | Scroll page down | `n`, `s` |
+| Go to top | `u` | Scroll page up | `p`, `w` |
+| Layer down | `y` |  |  |
 
 <a id="visual-mode"></a>
 
 ## Visual mode (`v`, sticky `Shift+v`)
 
-* Select multilayer rectangle: `Shift+r`, `Shift+v`
-* Select multilayer region: `Shift+e`
-* Select object: `a`, `o`
-* Select rectangle: `r`, `v`
-* Select region: `e`
-* Vertical space: `s`
+| Action | Keys |
+|---|---|
+| Select multilayer rectangle | `Shift+r`, `Shift+v` |
+| Select multilayer region | `Shift+e` |
+| Select object | `a`, `o` |
+| Select rectangle | `r`, `v` |
+| Select region | `e` |
+| Vertical space | `s` |
 
 <a id="resize-mode"></a>
 
 ## Resize mode (`r`, sticky `Shift+r`)
 
-* Fine: `s`
-* Medium: `d`, `m`, `r`
-* Thick: `Shift+d`, `f`, `Shift+m`, `Shift+r`
-* Very fine: `a`
-* Very thick: `g`
+| Action | Keys |
+|---|---|
+| Fine | `s` |
+| Medium | `d`, `m`, `r` |
+| Thick | `Shift+d`, `f`, `Shift+m`, `Shift+r` |
+| Very fine | `a` |
+| Very thick | `g` |
 
 ## All keys by mode
 
 | Key | Tool | Color | Shape | Linestyle | Page | File | More tool | Navigation | Visual | Resize |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `Ctrl+F1` | Black |  |  |  |  |  |  |  |  |  |
-| `Ctrl+Shift+F1` | Brown |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F2` | White |  |  |  |  |  |  |  |  |  |
-| `Ctrl+Shift+F2` | Orange |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F3` | Gray |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F4` | Light green |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F5` | Green |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F6` | Light blue |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F7` | Blue |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F8` | Red |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F9` | Yellow |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F10` | Purple |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F11` | Pink |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F12` | Magenta |  |  |  |  |  |  |  |  |  |
 | `a` | New page after | Gray | Arrow | Plain | New page after | Annotate PDF |  |  | Select object | Very fine |
 | `Shift+a` |  |  |  |  | New page before |  |  |  |  |  |
 | `b` | Page mode | Light blue |  |  |  |  |  |  |  |  |
@@ -249,3 +222,17 @@ tool mode), because plain letters are typed into the text.
 | `<` | Zoom out |  |  |  |  |  |  |  |  |  |
 | `-` | Zoom out |  |  |  |  |  |  |  |  |  |
 | `+` | Zoom in |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F1` | Black |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F2` | White |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F3` | Gray |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F4` | Light green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F5` | Green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F6` | Light blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F7` | Blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F8` | Red |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F9` | Yellow |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F10` | Purple |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F11` | Pink |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F12` | Magenta |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F1` | Brown |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F2` | Orange |  |  |  |  |  |  |  |  |  |

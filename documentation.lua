@@ -87,6 +87,7 @@ end
 -- actions per mode (mode switches are listed separately), and the keys that enter each mode
 local actions = {}
 local entry = {}
+local typingColors = {}  -- colors that also work while typing (Ctrl + F-keys)
 for _, mode in ipairs(ALL_MODES) do
   actions[mode] = {}
   entry[mode] = {normal = {}, sticky = {}}
@@ -97,6 +98,8 @@ for _, binding in pairs(keybindings) do
     assert(entry[binding.enters], "mode '" .. binding.enters .. "' is missing from ALL_MODES")
     local kind = binding.sticky and "sticky" or "normal"
     for _, key in ipairs(binding.buttons) do table.insert(entry[binding.enters][kind], key) end
+  elseif binding.typing then
+    typingColors[binding.description] = {keys = binding.buttons, order = binding.typing}
   else
     for _, mode in pairs(binding.modes) do
       assert(actions[mode], "mode '" .. mode .. "' is missing from ALL_MODES")
@@ -109,6 +112,26 @@ local function entryKeys(mode)
   table.sort(entry[mode].normal, keyOrder)
   table.sort(entry[mode].sticky, keyOrder)
   return formatKeys(entry[mode].normal), formatKeys(entry[mode].sticky)
+end
+
+-- sections with more rows than this are split into two Action | Keys
+-- column pairs, read down the left pair first, then down the right one
+local MAX_ROWS = 10
+
+local function writeActionTable(rows)
+  if #rows <= MAX_ROWS then
+    io.write("| Action | Keys |\n|---|---|\n")
+    for _, row in ipairs(rows) do
+      io.write("| " .. row[1] .. " | " .. row[2] .. " |\n")
+    end
+    return
+  end
+  local half = math.ceil(#rows / 2)
+  io.write("| Action | Keys | Action | Keys |\n|---|---|---|---|\n")
+  for i = 1, half do
+    local left, right = rows[i], rows[i + half] or {"", ""}
+    io.write("| " .. left[1] .. " | " .. left[2] .. " | " .. right[1] .. " | " .. right[2] .. " |\n")
+  end
 end
 
 local output_file = assert(io.open("keybindings.md", "w"))
@@ -147,10 +170,33 @@ for _, mode in ipairs(ALL_MODES) do
   -- the explicit anchor keeps the overview links working despite the keys in the heading
   io.write('<a id="' .. anchor(mode) .. '"></a>\n\n')
   io.write("## " .. heading .. ")\n\n")
-  for _, descr in ipairs(sortedKeys(actions[mode])) do
-    local keys = actions[mode][descr]
-    table.sort(keys, keyOrder)
-    io.write("* " .. descr .. ": " .. formatKeys(keys) .. "\n")
+  if mode == "color" then
+    -- one table: each color with its color mode key and its key while typing
+    local colors = sortedKeys(actions[mode], function(a, b)
+      local orderA = typingColors[a] and typingColors[a].order or math.huge
+      local orderB = typingColors[b] and typingColors[b].order or math.huge
+      if orderA ~= orderB then return orderA < orderB end
+      return a < b
+    end)
+    io.write("| Color | In color mode | While typing |\n|---|---|---|\n")
+    for _, descr in ipairs(colors) do
+      local keys = actions[mode][descr]
+      table.sort(keys, keyOrder)
+      local typing = typingColors[descr] and formatKeys(typingColors[descr].keys) or ""
+      io.write("| " .. descr .. " | " .. formatKeys(keys) .. " | " .. typing .. " |\n")
+    end
+    io.write("\nThe *while typing* keys also work outside text boxes, in tool mode.\n")
+  else
+    local rows = {}
+    for _, descr in ipairs(sortedKeys(actions[mode])) do
+      local keys = actions[mode][descr]
+      table.sort(keys, keyOrder)
+      table.insert(rows, {descr, formatKeys(keys)})
+    end
+    if mode == "tool" and next(typingColors) then
+      table.insert(rows, {"Colors while typing", "`Ctrl` + F-keys, see [Color mode](#" .. anchor("color") .. ")"})
+    end
+    writeActionTable(rows)
   end
   io.write("\n")
 end
@@ -179,7 +225,20 @@ local function sameMeaning(a, b)
   return true
 end
 
-for _, key in ipairs(sortedKeys(byKey, keyOrder)) do
+-- the Ctrl + F-key colors for typing go last, in the order of the color table
+local typingKeyOrder = {}
+for _, color in pairs(typingColors) do
+  for _, key in ipairs(color.keys) do typingKeyOrder[key] = color.order end
+end
+
+local function allKeysOrder(a, b)
+  local typingA, typingB = typingKeyOrder[a], typingKeyOrder[b]
+  if typingA and typingB then return typingA < typingB end
+  if typingA or typingB then return typingB ~= nil end
+  return keyOrder(a, b)
+end
+
+for _, key in ipairs(sortedKeys(byKey, allKeysOrder)) do
   local shifted, base = isShiftedSymbol(key)
   if shifted and byKey[base] and sameMeaning(byKey[key], byKey[base]) then goto continue end
   local cells = {}

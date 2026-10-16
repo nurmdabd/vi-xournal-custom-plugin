@@ -791,12 +791,13 @@ local typingColors = {
   {"<Ctrl><Shift>F1", "Brown",       "brownColor"},
   {"<Ctrl><Shift>F2", "Orange",      "orangeColor"},
 }
-for _, c in ipairs(typingColors) do
+for i, c in ipairs(typingColors) do
   local key, description, color = c[1], c[2], c[3]
   keybindings["typing" .. color] = {
     description = description,
     buttons     = {key},
     modes       = {"tool"},
+    typing      = i,  -- position in the color table of keybindings.md
     call        = function() changeToolColor(_G[color]) end
   }
 end
