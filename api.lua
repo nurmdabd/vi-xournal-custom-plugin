@@ -124,6 +124,40 @@ function clickTextFont()
   activate("select-font", "ACTION_SELECT_FONT")
 end
 
+-- text font sizes to step through with clickFontBigger / clickFontSmaller
+FONT_SIZES = {6, 8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72}
+
+-- steps the text font to the next size in FONT_SIZES. Applies to the text
+-- being edited or the selected text too. app.getFont / app.setFont exist
+-- since Xournal++ 1.3; older versions open the font dialog instead.
+local function stepFontSize(bigger)
+  if not (app.getFont and app.setFont) then
+    clickTextFont()
+    return
+  end
+  local size = app.getFont().size
+  local newSize = size
+  if bigger then
+    newSize = size + 8  -- beyond the list
+    for _, s in ipairs(FONT_SIZES) do
+      if s > size then newSize = s; break end
+    end
+  else
+    for _, s in ipairs(FONT_SIZES) do
+      if s < size then newSize = s end
+    end
+  end
+  app.setFont({size = newSize})
+end
+
+function clickFontBigger()
+  stepFontSize(true)
+end
+
+function clickFontSmaller()
+  stepFontSize(false)
+end
+
 function clickDefaultTool()
   activate("select-default-tool", "ACTION_TOOL_DEFAULT")
 end
@@ -237,10 +271,6 @@ end
 -- page
 function clickCopyPage()
   pageAction("duplicate-page", "COPY")
-end
-
-function clickDuplicatePage()
-  activate("duplicate-page", "ACTION_DUPLICATE_PAGE")
 end
 
 function clickNewPageAtEnd()

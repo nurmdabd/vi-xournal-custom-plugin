@@ -10,7 +10,9 @@ local KEY_NAMES = {
   less    = "<",
   plus    = "+",
   minus   = "-",
-  grave   = "`"
+  grave   = "`",
+  bracketleft  = "[",
+  bracketright = "]"
 }
 
 local MODIFIER_NAMES = {Shift = "Shift", Ctrl = "Ctrl", Control = "Ctrl", Primary = "Ctrl", Alt = "Alt"}

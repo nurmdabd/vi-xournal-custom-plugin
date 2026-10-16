@@ -27,6 +27,7 @@ and `t` returns to tool mode from every mode.
 
 ## Tool mode (`t`)
 
+* Bigger text font: `Ctrl+]`
 * Compass: `Shift+o`
 * Default tool: `d`
 * Eraser: `e`
@@ -37,6 +38,7 @@ and `t` returns to tool mode from every mode.
 * Pen: `w`
 * Redo: `y`
 * Setsquare: `Shift+e`
+* Smaller text font: `Ctrl+[`
 * Text: `x`
 * Text font: `` Ctrl+` ``
 * Undo: `z`
@@ -94,7 +96,6 @@ and `t` returns to tool mode from every mode.
 * Delete layer: `Shift+y`
 * Delete page: `x`
 * Dotted background: `o`
-* Duplicate page: `Shift+c`
 * Graph background: `g`
 * Isometric dotted background: `Shift+o`
 * Isometric graph background: `Shift+g`
@@ -176,7 +177,7 @@ and `t` returns to tool mode from every mode.
 | `b` | Page mode | Light blue |  |  |  |  |  |  |  |  |
 | `Shift+b` | Sticky page mode | Blue |  |  |  |  |  |  |  |  |
 | `c` | Color mode | Orange | Coordinate system |  | Copy page |  | Compass |  |  |  |
-| `Shift+c` | Sticky color mode |  |  |  | Duplicate page |  |  |  |  |  |
+| `Shift+c` | Sticky color mode |  |  |  |  |  |  |  |  |  |
 | `d` | Default tool |  | Double arrow | Dotted | Move page down |  |  | Go to bottom |  | Medium |
 | `Shift+d` |  |  |  |  |  |  |  |  |  | Thick |
 | `e` | Eraser | Green | Ellipse |  | New page at end | Export as PDF | Setsquare | Go to last page | Select region |  |
@@ -211,6 +212,8 @@ and `t` returns to tool mode from every mode.
 | `y` | Redo | Yellow |  |  | New layer |  |  | Layer down |  |  |
 | `Shift+y` |  |  |  |  | Delete layer |  |  |  |  |  |
 | `z` | Undo |  |  |  |  |  |  |  |  |  |
+| `Ctrl+[` | Smaller text font |  |  |  |  |  |  |  |  |  |
+| `Ctrl+]` | Bigger text font |  |  |  |  |  |  |  |  |  |
 | `` Ctrl+` `` | Text font |  |  |  |  |  |  |  |  |  |
 | `>` | Zoom in |  |  |  |  |  |  |  |  |  |
 | `<` | Zoom out |  |  |  |  |  |  |  |  |  |

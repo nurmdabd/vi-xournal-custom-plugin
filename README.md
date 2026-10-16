@@ -39,7 +39,8 @@ The default mode is **tool** mode.
 Tool mode is used for switching between the different tools, modes,
 and history operations. Available tools are _pen_, _eraser_, _highlighter_,
 _text_, _image_, _hand_, _default tool_, _setsquare_, _compass_, plus
-_text font_, _new page after_, _zoom in/out/to fit_.
+_text font_ (dialog, or `Ctrl+[` / `Ctrl+]` for a smaller / bigger size),
+_new page after_, _zoom in/out/to fit_.
 Available modes are **color**, **shape**, **linestyle**, **page**, **file**,
 **more tool**, **navigation**, **visual**, **resize**.
 Pressing any key in any mode other than _tool_ automatically
@@ -68,7 +69,7 @@ namely _plain_, _dashed_, _dotted_, _dash-dotted_.
 
 ## Page mode
 The **page** mode can manipulate pages and layers.
-Available actions are _copy_, _duplicate_, _delete_, _moveUp_, _moveDown_,
+Available actions are _copy_, _delete_, _moveUp_, _moveDown_,
 _newBefore_, _newAfter_, _newAtEnd_, _newLayer_, _deleteLayer_, and changing
 the page background (_plain_, _ruled_, _ruled with vertical line_, _dotted_,
 _isometric dotted_, _graph_, _isometric graph_, _staves_).

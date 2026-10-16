@@ -50,6 +50,18 @@ keybindings = {
     modes       = {"tool"},
     call        = clickTextFont
   },
+  fontBigger = {
+    description = "Bigger text font",
+    buttons     = {"<Ctrl>bracketright"},
+    modes       = {"tool"},
+    call        = clickFontBigger
+  },
+  fontSmaller = {
+    description = "Smaller text font",
+    buttons     = {"<Ctrl>bracketleft"},
+    modes       = {"tool"},
+    call        = clickFontSmaller
+  },
   image = {
     description = "Image",
     buttons     = {"i"},
@@ -553,12 +565,6 @@ keybindings = {
     buttons     = {"c"},
     modes       = {"page"},
     call        = clickCopyPage,
-  },
-  duplicatePage = {
-    description = "Duplicate page",
-    buttons     = {"<Shift>c"},
-    modes       = {"page"},
-    call        = clickDuplicatePage
   },
   deletePage = {
     description = "Delete page",
