@@ -48,7 +48,7 @@ keybindings = {
     call        = clickSelectRegion
   },
   tex = {
-    description = "Tex",
+    description = "LaTeX",
     buttons     = {"i"},
     modes       = {"tool"},
     call        = clickTex
@@ -81,130 +81,122 @@ keybindings = {
   },
 
   -- Mode Selection
+  -- these only declare the mode they enter (and whether it is sticky);
+  -- their `call` is generated below the table
   tool = {
     description = "Tool mode",
     buttons     = {"t"},
     modes       = ALL_MODES,
-    call        = function()
-      currentMode = "tool"
-      sticky = false
-    end
+    enters      = "tool"
   },
   color = {
     description = "Color mode",
     buttons     = {"c"},
     modes       = {"tool"},
-    call        = function() currentMode = "color" end
+    enters      = "color"
   },
   stickyColor = {
     description = "Sticky color mode",
     buttons     = {"<Shift>c"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "color"
-      sticky = true
-    end
+    enters      = "color",
+    sticky      = true
   },
   shape = {
     description = "Shape mode",
     buttons     = {"s"},
     modes       = {"tool"},
-    call        = function() currentMode = "shape" end
+    enters      = "shape"
   },
   stickyShape = {
     description = "Sticky shape mode",
     buttons     = {"<Shift>s"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "shape"
-      sticky = true
-    end
+    enters      = "shape",
+    sticky      = true
   },
   linestyle = {
     description = "Linestyle mode",
     buttons     = {"l", "q"},
     modes       = {"tool"},
-    call        = function() currentMode = "linestyle" end
+    enters      = "linestyle"
   },
   stickyLinestyle = {
     description = "Sticky linestyle mode",
     buttons     = {"<Shift>l"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "linestyle"
-      sticky = true
-    end
+    enters      = "linestyle",
+    sticky      = true
   },
   page = {
     description = "Page mode",
     buttons     = {"b", "p"},
     modes       = {"tool"},
-    call        = function() currentMode = "page" end
+    enters      = "page"
   },
   stickyPage = {
     description = "Sticky page mode",
     buttons     = {"<Shift>b", "<Shift>p"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "page"
-      sticky = true
-    end
+    enters      = "page",
+    sticky      = true
   },
   navigation = {
     description = "Navigation mode",
     buttons     = {"n"},
     modes       = {"tool"},
-    call        = function() currentMode = "navigation" end
+    enters      = "navigation"
   },
   stickyNavigation = {
     description = "Sticky navigation mode",
     buttons     = {"<Shift>n"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "navigation"
-      sticky = true
-    end
+    enters      = "navigation",
+    sticky      = true
   },
   file = {
     description = "File mode",
     buttons     = {"f"},
     modes       = {"tool"},
-    call        = function() currentMode = "file" end
+    enters      = "file"
   },
   stickyFile = {
     description = "Sticky file mode",
     buttons     = {"<Shift>f"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "file"
-      sticky = true
-    end
+    enters      = "file",
+    sticky      = true
   },
   visual = {
     description = "Visual mode",
     buttons     = {"v"},
     modes       = {"tool"},
-    call        = function() currentMode = "visual" end
+    enters      = "visual"
   },
   stickyVisual = {
     description = "Sticky visual mode",
     buttons     = {"<Shift>v"},
     modes       = {"tool"},
-    call        = function()
-      currentMode = "visual"
-      sticky = true
-    end
+    enters      = "visual",
+    sticky      = true
   },
   resize = {
     description = "Resize mode",
     buttons     = {"r"},
     modes       = {"tool"},
-    call        = function() currentMode = "resize" end
+    enters      = "resize"
+  },
+  stickyResize = {
+    description = "Sticky resize mode",
+    buttons     = {"<Shift>r"},
+    modes       = {"tool"},
+    enters      = "resize",
+    sticky      = true
   },
 
   -- Various tool mode commands
   newAfterTool = {
-    description = "NewAfter",
+    description = "New page after",
     buttons     = {"a"},
     modes       = {"tool"},
     call        = clickNewAfter
@@ -230,7 +222,7 @@ keybindings = {
 
   -- Thickness
   veryFine = {
-    description = "Very Fine",
+    description = "Very fine",
     buttons     = {"e"},
     modes       = {"resize"},
     call        = clickVeryFine,
@@ -378,7 +370,7 @@ keybindings = {
     call        = clickDotted
   },
   dashDotted = {
-    description = "DashDotted",
+    description = "Dash-dotted",
     buttons     = {"a", "h"},
     modes       = {"linestyle"},
     call        = clickDashDotted
@@ -386,13 +378,13 @@ keybindings = {
 
   -- Page
   copyPage = {
-    description = "copyPage",
+    description = "Copy page",
     buttons     = {"c"},
     modes       = {"page"},
     call        = clickCopyPage,
   },
   deletePage = {
-    description = "DeletePage",
+    description = "Delete page",
     buttons     = {"d"},
     modes       = {"page"},
     call        = function ()
@@ -400,31 +392,31 @@ keybindings = {
     end
   },
   moveUp = {
-    description = "Move Up",
+    description = "Move page up",
     buttons     = {"w"},
     modes       = {"page"},
     call        = clickMoveUp
   },
   moveDown = {
-    description = "Move Down",
+    description = "Move page down",
     buttons     = {"s"},
     modes       = {"page"},
     call        = clickMoveDown
   },
   newBefore = {
-    description = "New Before",
+    description = "New page before",
     buttons     = {"<Shift>a"},
     modes       = {"page"},
     call        = clickNewBefore
   },
   newAfter = {
-    description = "New After",
+    description = "New page after",
     buttons     = {"a"},
     modes       = {"page"},
     call        = clickNewAfter
   },
   deleteLayer = {
-    description = "Delete Layer",
+    description = "Delete layer",
     buttons     = {"x"},
     modes       = {"page"},
     call        = function ()
@@ -432,7 +424,7 @@ keybindings = {
     end
   },
   newLayer = {
-    description = "NewLayer",
+    description = "New layer",
     buttons     = {"y"},
     modes       = {"page"},
     call        = clickNewLayer
@@ -534,7 +526,7 @@ keybindings = {
     call        = clickLayerUp
   },
   layerDown = {
-    description = "Layer Down",
+    description = "Layer down",
     buttons     = {"x"},
     modes       = {"navigation"},
     call        = clickLayerDown
@@ -560,7 +552,7 @@ keybindings = {
     call        = clickSave
   },
   saveAs = {
-    description = "Save file as ...",
+    description = "Save file as",
     buttons     = {"<Shift>s", "<Shift>w"},
     modes       = {"file"},
     call        = clickSaveAs
@@ -574,24 +566,34 @@ keybindings = {
 
   -- Visual
   lasso = {
-    description = "Select Region",
+    description = "Select region",
     buttons     = {"e"},
     modes       = {"visual"},
     call        = clickSelectRegion
   },
   selectRectangle = {
-    description = "Select Rectangle",
+    description = "Select rectangle",
     buttons     = {"v", "r"},
     modes       = {"visual"},
     call        = clickSelectRectangle
   },
   selectObject = {
-    description = "Select Object",
+    description = "Select object",
     buttons     = {"o"},
     modes       = {"visual"},
     call        = clickSelectObject
   }
 }
+
+-- mode switching: generate the call of every binding with an `enters` field
+for _, binding in pairs(keybindings) do
+  if binding.enters then
+    binding.call = function()
+      currentMode = binding.enters
+      sticky = binding.sticky or false
+    end
+  end
+end
 
 -- helper functions
 function cleanShape()
