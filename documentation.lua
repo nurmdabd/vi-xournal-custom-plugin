@@ -87,6 +87,7 @@ end
 -- actions per mode (mode switches are listed separately), and the keys that enter each mode
 local actions = {}
 local entry = {}
+local typingColors = {}  -- colors that also work while typing (Ctrl + F-keys)
 for _, mode in ipairs(ALL_MODES) do
   actions[mode] = {}
   entry[mode] = {normal = {}, sticky = {}}
@@ -97,6 +98,8 @@ for _, binding in pairs(keybindings) do
     assert(entry[binding.enters], "mode '" .. binding.enters .. "' is missing from ALL_MODES")
     local kind = binding.sticky and "sticky" or "normal"
     for _, key in ipairs(binding.buttons) do table.insert(entry[binding.enters][kind], key) end
+  elseif binding.typing then
+    typingColors[binding.description] = {keys = binding.buttons, order = binding.typing}
   else
     for _, mode in pairs(binding.modes) do
       assert(actions[mode], "mode '" .. mode .. "' is missing from ALL_MODES")
@@ -147,10 +150,31 @@ for _, mode in ipairs(ALL_MODES) do
   -- the explicit anchor keeps the overview links working despite the keys in the heading
   io.write('<a id="' .. anchor(mode) .. '"></a>\n\n')
   io.write("## " .. heading .. ")\n\n")
-  for _, descr in ipairs(sortedKeys(actions[mode])) do
-    local keys = actions[mode][descr]
-    table.sort(keys, keyOrder)
-    io.write("* " .. descr .. ": " .. formatKeys(keys) .. "\n")
+  if mode == "color" then
+    -- one table: each color with its color mode key and its key while typing
+    local colors = sortedKeys(actions[mode], function(a, b)
+      local orderA = typingColors[a] and typingColors[a].order or math.huge
+      local orderB = typingColors[b] and typingColors[b].order or math.huge
+      if orderA ~= orderB then return orderA < orderB end
+      return a < b
+    end)
+    io.write("| Color | In color mode | While typing |\n|---|---|---|\n")
+    for _, descr in ipairs(colors) do
+      local keys = actions[mode][descr]
+      table.sort(keys, keyOrder)
+      local typing = typingColors[descr] and formatKeys(typingColors[descr].keys) or ""
+      io.write("| " .. descr .. " | " .. formatKeys(keys) .. " | " .. typing .. " |\n")
+    end
+    io.write("\nThe *while typing* keys also work outside text boxes, in tool mode.\n")
+  else
+    for _, descr in ipairs(sortedKeys(actions[mode])) do
+      local keys = actions[mode][descr]
+      table.sort(keys, keyOrder)
+      io.write("* " .. descr .. ": " .. formatKeys(keys) .. "\n")
+    end
+    if mode == "tool" and next(typingColors) then
+      io.write("* Colors while typing (`Ctrl` + F-keys): see the table in [Color mode](#" .. anchor("color") .. ")\n")
+    end
   end
   io.write("\n")
 end

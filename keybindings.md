@@ -30,56 +30,47 @@ tool mode), because plain letters are typed into the text.
 ## Tool mode (`t`)
 
 * Bigger text font: `Ctrl+]`
-* Black: `Ctrl+F1`
-* Blue: `Ctrl+F7`
-* Brown: `Ctrl+Shift+F1`
 * Compass: `Shift+o`
 * Default tool: `d`
 * Eraser: `e`
-* Gray: `Ctrl+F3`
-* Green: `Ctrl+F5`
 * Hand: `u`
 * Highlighter: `g`
 * Image: `i`
-* Light blue: `Ctrl+F6`
-* Light green: `Ctrl+F4`
-* Magenta: `Ctrl+F12`
 * New page after: `a`
-* Orange: `Ctrl+Shift+F2`
 * Pen: `w`
-* Pink: `Ctrl+F11`
-* Purple: `Ctrl+F10`
-* Red: `Ctrl+F8`
 * Redo: `y`
 * Setsquare: `Shift+e`
 * Smaller text font: `Ctrl+[`
 * Text: `x`
 * Text font: `` Ctrl+` ``
 * Undo: `z`
-* White: `Ctrl+F2`
-* Yellow: `Ctrl+F9`
 * Zoom in: `>`, `+`
 * Zoom out: `<`, `-`
 * Zoom to fit: `o`
+* Colors while typing (`Ctrl` + F-keys): see the table in [Color mode](#color-mode)
 
 <a id="color-mode"></a>
 
 ## Color mode (`c`, sticky `Shift+c`)
 
-* Black: `x`
-* Blue: `Shift+b`, `u`
-* Brown: `n`
-* Gray: `a`, `Shift+x`
-* Green: `e`, `Shift+g`
-* Light blue: `b`
-* Light green: `g`
-* Magenta: `m`
-* Orange: `c`, `o`
-* Pink: `i`, `q`
-* Purple: `p`, `s`
-* Red: `r`
-* White: `w`
-* Yellow: `y`
+| Color | In color mode | While typing |
+|---|---|---|
+| Black | `x` | `Ctrl+F1` |
+| White | `w` | `Ctrl+F2` |
+| Gray | `a`, `Shift+x` | `Ctrl+F3` |
+| Light green | `g` | `Ctrl+F4` |
+| Green | `e`, `Shift+g` | `Ctrl+F5` |
+| Light blue | `b` | `Ctrl+F6` |
+| Blue | `Shift+b`, `u` | `Ctrl+F7` |
+| Red | `r` | `Ctrl+F8` |
+| Yellow | `y` | `Ctrl+F9` |
+| Purple | `p`, `s` | `Ctrl+F10` |
+| Pink | `i`, `q` | `Ctrl+F11` |
+| Magenta | `m` | `Ctrl+F12` |
+| Brown | `n` | `Ctrl+Shift+F1` |
+| Orange | `c`, `o` | `Ctrl+Shift+F2` |
+
+The *while typing* keys also work outside text boxes, in tool mode.
 
 <a id="shape-mode"></a>
 
