@@ -24,7 +24,7 @@ keybindings = {
     description = "Pen",
     buttons     = {"w"},
     modes       = {"tool"},
-    call        = function() clickPen() ; cleanShape() end
+    call        = function() clickPen() ; cleanShape() ; clickPlain() end
   },
   eraser = {
     description = "Eraser",
@@ -820,6 +820,9 @@ for _, binding in pairs(keybindings) do
 end
 
 -- helper functions
+-- turns off all shape drawing and fill for the active tool. It does not reset
+-- the line style: in Xournal++ 1.3 setting a line style switches to the pen,
+-- which made the eraser and highlighter keys select the pen instead.
 function cleanShape()
   clickRuler(false)
   clickArrow(false)
@@ -830,7 +833,6 @@ function cleanShape()
   clickSpline(false)
   clickShapeRecogniser(false)
   clickFill(false)
-  clickPlain()
 end
 
 -- asks a yes/no question and calls the global function named `callback`
