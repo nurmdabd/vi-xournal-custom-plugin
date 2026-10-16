@@ -49,4 +49,35 @@ for _, mode in ipairs(ALL_MODES) do
   io.write("\n")
 end
 
+-- overview table: one row per key, one column per mode
+local byKey = {}
+for _, binding in pairs(keybindings) do
+  for _, key in ipairs(binding.buttons) do
+    byKey[key] = byKey[key] or {}
+    for _, mode in pairs(binding.modes) do
+      byKey[key][mode] = binding.description
+    end
+  end
+end
+
+local keys = {}
+for key in pairs(byKey) do table.insert(keys, key) end
+-- sort by the key itself, unshifted before shifted (a, <Shift>a, b, ...)
+table.sort(keys, function(a, b)
+  local baseA, baseB = a:gsub("^<Shift>", ""), b:gsub("^<Shift>", "")
+  if baseA ~= baseB then return baseA < baseB end
+  return #a < #b
+end)
+
+io.write("## All keys by mode\n\n")
+io.write("| Key | " .. table.concat(ALL_MODES, " | ") .. " |\n")
+io.write("|---" .. string.rep("|---", #ALL_MODES) .. "|\n")
+for _, key in ipairs(keys) do
+  local cells = {}
+  for _, mode in ipairs(ALL_MODES) do
+    table.insert(cells, byKey[key][mode] or "")
+  end
+  io.write("| `" .. key .. "` | " .. table.concat(cells, " | ") .. " |\n")
+end
+
 io.close(output_file)
