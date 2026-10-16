@@ -1,112 +1,172 @@
+-- Xournal++ 1.3 replaced app.uiAction / app.sidebarAction with
+-- app.activateAction / app.changeActionState (the old ones are deprecated).
+-- These helpers use the new API when it exists and fall back to the old one
+-- on Xournal++ 1.1 / 1.2.
+
+-- runs a one-shot action, e.g. "undo"
+local function activate(action, oldAction)
+  if app.activateAction then
+    app.activateAction(action)
+  else
+    app.uiAction({["action"] = oldAction})
+  end
+end
+
+-- turns an on/off action on (default) or off, e.g. "tool-draw-rectangle"
+local function toggle(action, enabled, oldAction)
+  if enabled == nil then enabled = true end
+  if app.changeActionState then
+    app.changeActionState(action, enabled)
+  else
+    app.uiAction({["action"] = oldAction, ["enabled"] = enabled})
+  end
+end
+
+-- tool is the suffix of an app.C.Tool_* constant, e.g. "pen"
+local function selectTool(tool, oldAction)
+  if app.changeActionState then
+    app.changeActionState("select-tool", app.C["Tool_" .. tool])
+  else
+    app.uiAction({["action"] = oldAction})
+  end
+end
+
+-- size is the suffix of an app.C.ToolSize_* constant, e.g. "medium"
+local function setSize(size, oldAction)
+  if app.changeActionState then
+    app.changeActionState("tool-size", app.C["ToolSize_" .. size])
+  else
+    app.uiAction({["action"] = oldAction})
+  end
+end
+
+local function setLineStyle(style, oldAction)
+  if app.changeActionState then
+    app.changeActionState("tool-pen-line-style", style)
+  else
+    app.uiAction({["action"] = oldAction})
+  end
+end
+
+-- the old sidebarAction acted on pages or layers depending on the open
+-- sidebar tab; the new actions always act on pages
+local function pageAction(action, oldSidebarAction)
+  if app.activateAction then
+    app.activateAction(action)
+  else
+    app.sidebarAction(oldSidebarAction)
+  end
+end
+
 -- line width
 function clickVeryFine()
-  app.uiAction({["action"] = "ACTION_SIZE_VERY_FINE"})
+  setSize("veryThin", "ACTION_SIZE_VERY_FINE")
 end
 
 function clickFine()
-  app.uiAction({["action"] = "ACTION_SIZE_FINE"})
+  setSize("thin", "ACTION_SIZE_FINE")
 end
 
 function clickMedium()
-  app.uiAction({["action"] = "ACTION_SIZE_MEDIUM"})
+  setSize("medium", "ACTION_SIZE_MEDIUM")
 end
 
 function clickThick()
-  app.uiAction({["action"] = "ACTION_SIZE_THICK"})
+  setSize("thick", "ACTION_SIZE_THICK")
 end
 
 function clickVeryThick()
-  app.uiAction({["action"] = "ACTION_SIZE_VERY_THICK"})
+  setSize("veryThick", "ACTION_SIZE_VERY_THICK")
 end
 
 -- tools
 function clickPen()
-  app.uiAction({["action"] = "ACTION_TOOL_PEN"})
+  selectTool("pen", "ACTION_TOOL_PEN")
 end
 
 function clickEraser()
-  app.uiAction({["action"] = "ACTION_TOOL_ERASER"})
+  selectTool("eraser", "ACTION_TOOL_ERASER")
 end
 
 function clickHighlighter()
-  app.uiAction({["action"] = "ACTION_TOOL_HIGHLIGHTER"})
+  selectTool("highlighter", "ACTION_TOOL_HIGHLIGHTER")
 end
 
 function clickSelectRegion()
-  app.uiAction({["action"] = "ACTION_TOOL_SELECT_REGION"})
+  selectTool("selectRegion", "ACTION_TOOL_SELECT_REGION")
 end
 
 function clickSelectRectangle()
-  app.uiAction({["action"] = "ACTION_TOOL_SELECT_RECT"})
+  selectTool("selectRect", "ACTION_TOOL_SELECT_RECT")
 end
 
 function clickSelectObject()
-  app.uiAction({["action"] = "ACTION_TOOL_SELECT_OBJECT"})
+  selectTool("selectObject", "ACTION_TOOL_SELECT_OBJECT")
 end
 
 function clickTex()
-  app.uiAction({["action"] = "ACTION_TEX"})
+  activate("tex", "ACTION_TEX")
 end
 
 function clickText()
-  app.uiAction({["action"] = "ACTION_TOOL_TEXT"})
+  selectTool("text", "ACTION_TOOL_TEXT")
 end
 
 function clickHand()
-  app.uiAction({["action"] = "ACTION_TOOL_HAND"})
+  selectTool("hand", "ACTION_TOOL_HAND")
 end
 
 function clickDelete()
-  app.uiAction({["action"] = "ACTION_DELETE"})
+  activate("delete", "ACTION_DELETE")
 end
 
 
 -- shapes
 function clickRuler(enabled)
-  app.uiAction({["action"] = "ACTION_RULER", ["enabled"] = enabled})
+  toggle("tool-draw-line", enabled, "ACTION_RULER")
 end
 
 function clickArrow(enabled)
-  app.uiAction({["action"] = "ACTION_TOOL_DRAW_ARROW", ["enabled"] = enabled})
+  toggle("tool-draw-arrow", enabled, "ACTION_TOOL_DRAW_ARROW")
 end
 
 function clickEllipse(enabled)
-  app.uiAction({["action"] = "ACTION_TOOL_DRAW_ELLIPSE", ["enabled"] = enabled})
+  toggle("tool-draw-ellipse", enabled, "ACTION_TOOL_DRAW_ELLIPSE")
 end
 
 function clickRectangle(enabled)
-  app.uiAction({["action"] = "ACTION_TOOL_DRAW_RECT", ["enabled"] = enabled})
+  toggle("tool-draw-rectangle", enabled, "ACTION_TOOL_DRAW_RECT")
 end
 
 function clickSpline(enabled)
-    app.uiAction({["action"] = "ACTION_TOOL_DRAW_SPLINE", ["enabled"] = enabled})
+  toggle("tool-draw-spline", enabled, "ACTION_TOOL_DRAW_SPLINE")
 end
 
 function clickPlain()
-  app.uiAction({["action"] = "ACTION_TOOL_LINE_STYLE_PLAIN"})
+  setLineStyle("plain", "ACTION_TOOL_LINE_STYLE_PLAIN")
 end
 
 function clickFill(enabled)
-  app.uiAction({["action"] = "ACTION_TOOL_FILL", ["selection"] = true, ["enabled"] = enabled})
+  toggle("tool-fill", enabled, "ACTION_TOOL_FILL")
 end
 
 
 -- linestyle
 function clickDotted()
-  app.uiAction({["action"] = "ACTION_TOOL_LINE_STYLE_DOT"})
+  setLineStyle("dot", "ACTION_TOOL_LINE_STYLE_DOT")
 end
 
 function clickDashed()
-  app.uiAction({["action"] = "ACTION_TOOL_LINE_STYLE_DASH"})
+  setLineStyle("dash", "ACTION_TOOL_LINE_STYLE_DASH")
 end
 
 function clickDashDotted()
-  app.uiAction({["action"] = "ACTION_TOOL_LINE_STYLE_DASH_DOT"})
+  setLineStyle("dashdot", "ACTION_TOOL_LINE_STYLE_DASH_DOT")
 end
 
 -- color
 function changeToolColor(color)
-  local result = app.changeToolColor({["color"] = color, ["selection"] = true})
+  app.changeToolColor({["color"] = color, ["selection"] = true})
 
   -- change text tool color too, because (with the default template) the TEX tool also uses that color
   app.changeToolColor({["color"] = color, ["tool"] = "TEXT"})
@@ -114,45 +174,45 @@ end
 
 -- zooming
 function clickZoomIn()
-  app.uiAction({["action"] = "ACTION_ZOOM_IN"})
+  activate("zoom-in", "ACTION_ZOOM_IN")
 end
 
 function clickZoomOut()
-  app.uiAction({["action"] = "ACTION_ZOOM_OUT"})
+  activate("zoom-out", "ACTION_ZOOM_OUT")
 end
 
 
 -- page
 function clickCopyPage()
-  app.sidebarAction("COPY")
+  pageAction("duplicate-page", "COPY")
 end
 
 function clickDeletePage()
-  app.uiAction({["action"] = "ACTION_DELETE_PAGE"})
+  activate("delete-page", "ACTION_DELETE_PAGE")
 end
 
 function clickMoveUp()
-  app.sidebarAction("MOVE_UP")
+  pageAction("move-page-towards-beginning", "MOVE_UP")
 end
 
 function clickMoveDown()
-  app.sidebarAction("MOVE_DOWN")
+  pageAction("move-page-towards-end", "MOVE_DOWN")
 end
 
 function clickNewBefore()
-  app.sidebarAction("NEW_BEFORE")
+  pageAction("new-page-before", "NEW_BEFORE")
 end
 
 function clickNewAfter()
-  app.sidebarAction("NEW_AFTER")
+  pageAction("new-page-after", "NEW_AFTER")
 end
 
 function clickNewLayer()
-  app.uiAction({["action"] = "ACTION_NEW_LAYER"})
+  activate("layer-new-above-current", "ACTION_NEW_LAYER")
 end
 
 function clickDeleteLayer()
-  app.uiAction({["action"] = "ACTION_DELETE_LAYER"})
+  activate("layer-delete", "ACTION_DELETE_LAYER")
 end
 
 -- navigation
@@ -197,43 +257,43 @@ function currentPage()
 end
 
 function clickLayerDown()
-  app.uiAction({["action"] = "ACTION_GOTO_PREVIOUS_LAYER"})
+  activate("layer-goto-previous", "ACTION_GOTO_PREVIOUS_LAYER")
 end
 
 function clickLayerUp()
-  app.uiAction({["action"] = "ACTION_GOTO_NEXT_LAYER"})
+  activate("layer-goto-next", "ACTION_GOTO_NEXT_LAYER")
 end
 
 
 -- history
 function clickUndo()
-  app.uiAction({["action"] = "ACTION_UNDO"})
+  activate("undo", "ACTION_UNDO")
 end
 
 function clickRedo()
-  app.uiAction({["action"] = "ACTION_REDO"})
+  activate("redo", "ACTION_REDO")
 end
 
 
 -- files
 function clickAnnotatePDF()
-  app.uiAction({["action"] = "ACTION_ANNOTATE_PDF"})
+  activate("annotate-pdf", "ACTION_ANNOTATE_PDF")
 end
 
 function clickExportAsPDF()
-  app.uiAction({["action"] = "ACTION_EXPORT_AS_PDF"})
+  activate("export-as-pdf", "ACTION_EXPORT_AS_PDF")
 end
 
 function clickSave()
-  app.uiAction({["action"] = "ACTION_SAVE"})
+  activate("save", "ACTION_SAVE")
 end
 
 function clickSaveAs()
-  app.uiAction({["action"] = "ACTION_SAVE_AS"})
+  activate("save-as", "ACTION_SAVE_AS")
 end
 
 function clickOpen()
-  app.uiAction({["action"] = "ACTION_OPEN"})
+  activate("open", "ACTION_OPEN")
 end
 
 -- background

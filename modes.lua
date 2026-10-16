@@ -12,8 +12,14 @@ function handle(key)
       end
       binding.call()
       print(binding.description)
-      break
+      return
     end
+  end
+  -- the key means nothing in this one-shot mode: leave it and
+  -- treat the key as a tool mode key instead
+  if currentMode ~= "tool" and not sticky then
+    currentMode = "tool"
+    handle(key)
   end
 end
 

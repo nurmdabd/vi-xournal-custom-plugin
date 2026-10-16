@@ -1,6 +1,8 @@
 # vi-xournalpp
 This is a tiny plugin for [Xournal++](https://github.com/xournalpp/xournalpp),
-version 1.1.x and 1.2.x.
+version 1.1.x, 1.2.x and 1.3.x. On 1.3 it uses the new action API
+(`app.activateAction` / `app.changeActionState`); on older versions it
+falls back to the deprecated `app.uiAction` / `app.sidebarAction`.
 
 # Installation
 To set the plugin up on Linux, run
@@ -41,7 +43,9 @@ Available modes are **color**, **shape**, **linestyle**, **page**, **navigation*
 **file**, **visual**, **resize**.
 Pressing any key in any mode other than _tool_ automatically
 returns the user to tool mode, unless the mode was made "sticky"
-by pressing `<Shift>`. E.g., to enter _sticky color mode_, press
+by pressing `<Shift>`. A key that has no meaning in the current mode
+leaves the mode and does what it does in tool mode instead
+(e.g. `c` `s` leaves color mode and enters shape mode). E.g., to enter _sticky color mode_, press
 `<Shift>c`.
 Available history operations are _undo_, _redo_.
 
@@ -134,7 +138,9 @@ A mode `newMode` needs the following
 vi-xournalpp currently does not cover the full API. To add another entry,
 follow the following steps.
 
-1. Make a function in `api.lua` wrapping the API call.
+1. Make a function in `api.lua` wrapping the API call. Prefer the helpers
+   at the top of `api.lua` (`activate`, `toggle`, `selectTool`, ...), which
+   pick the right API for the running Xournal++ version.
 2. Create a new keybinding for it in `keybindings.lua`.
 
 If the entry is a color, also update `colors.lua` accordingly.
