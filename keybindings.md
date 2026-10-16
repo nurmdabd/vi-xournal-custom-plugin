@@ -29,25 +29,27 @@ tool mode), because plain letters are typed into the text.
 
 ## Tool mode (`t`)
 
-* Bigger text font: `Ctrl+]`
-* Compass: `Shift+o`
-* Default tool: `d`
-* Eraser: `e`
-* Hand: `u`
-* Highlighter: `g`
-* Image: `i`
-* New page after: `a`
-* Pen: `w`
-* Redo: `y`
-* Setsquare: `Shift+e`
-* Smaller text font: `Ctrl+[`
-* Text: `x`
-* Text font: `` Ctrl+` ``
-* Undo: `z`
-* Zoom in: `>`, `+`
-* Zoom out: `<`, `-`
-* Zoom to fit: `o`
-* Colors while typing (`Ctrl` + F-keys): see the table in [Color mode](#color-mode)
+| Action | Keys |
+|---|---|
+| Bigger text font | `Ctrl+]` |
+| Compass | `Shift+o` |
+| Default tool | `d` |
+| Eraser | `e` |
+| Hand | `u` |
+| Highlighter | `g` |
+| Image | `i` |
+| New page after | `a` |
+| Pen | `w` |
+| Redo | `y` |
+| Setsquare | `Shift+e` |
+| Smaller text font | `Ctrl+[` |
+| Text | `x` |
+| Text font | `` Ctrl+` `` |
+| Undo | `z` |
+| Zoom in | `>`, `+` |
+| Zoom out | `<`, `-` |
+| Zoom to fit | `o` |
+| Colors while typing | `Ctrl` + F-keys, see [Color mode](#color-mode) |
 
 <a id="color-mode"></a>
 
@@ -76,104 +78,120 @@ The *while typing* keys also work outside text boxes, in tool mode.
 
 ## Shape mode (`s`, sticky `Shift+s`)
 
-* Arrow: `a`
-* Coordinate system: `c`
-* Double arrow: `d`
-* Ellipse: `e`
-* Fill: `f`
-* Rectangle: `r`
-* Ruler: `s`, `u`
-* Shape recogniser: `g`
-* Spline: `p`, `q`
+| Action | Keys |
+|---|---|
+| Arrow | `a` |
+| Coordinate system | `c` |
+| Double arrow | `d` |
+| Ellipse | `e` |
+| Fill | `f` |
+| Rectangle | `r` |
+| Ruler | `s`, `u` |
+| Shape recogniser | `g` |
+| Spline | `p`, `q` |
 
 <a id="linestyle-mode"></a>
 
 ## Linestyle mode (`q`, sticky `Shift+q`)
 
-* Dash-dotted: `f`
-* Dashed: `s`
-* Dotted: `d`
-* Plain: `a`, `p`
+| Action | Keys |
+|---|---|
+| Dash-dotted | `f` |
+| Dashed | `s` |
+| Dotted | `d` |
+| Plain | `a`, `p` |
 
 <a id="page-mode"></a>
 
 ## Page mode (`b`, `p`, sticky `Shift+b`, `Shift+p`)
 
-* Copy page: `c`
-* Delete layer: `Shift+y`
-* Delete page: `x`
-* Dotted background: `o`
-* Graph background: `g`
-* Isometric dotted background: `Shift+o`
-* Isometric graph background: `Shift+g`
-* Move page down: `d`
-* Move page up: `u`
-* New layer: `y`
-* New page after: `a`
-* New page at end: `e`
-* New page before: `Shift+a`
-* Plain background: `p`
-* Ruled background: `r`
-* Ruled with vertical line background: `v`
-* Staves background: `s`
+| Action | Keys |
+|---|---|
+| Copy page | `c` |
+| Delete layer | `Shift+y` |
+| Delete page | `x` |
+| Dotted background | `o` |
+| Graph background | `g` |
+| Isometric dotted background | `Shift+o` |
+| Isometric graph background | `Shift+g` |
+| Move page down | `d` |
+| Move page up | `u` |
+| New layer | `y` |
+| New page after | `a` |
+| New page at end | `e` |
+| New page before | `Shift+a` |
+| Plain background | `p` |
+| Ruled background | `r` |
+| Ruled with vertical line background | `v` |
+| Staves background | `s` |
 
 <a id="file-mode"></a>
 
 ## File mode (`f`, sticky `Shift+f`)
 
-* Annotate PDF: `a`
-* Export as PDF: `e`
-* New file: `n`
-* Open file: `o`
-* Print: `p`
-* Quit: `q`
-* Save file: `s`, `w`
-* Save file as: `Shift+s`, `Shift+w`
+| Action | Keys |
+|---|---|
+| Annotate PDF | `a` |
+| Export as PDF | `e` |
+| New file | `n` |
+| Open file | `o` |
+| Print | `p` |
+| Quit | `q` |
+| Save file | `s`, `w` |
+| Save file as | `Shift+s`, `Shift+w` |
 
 <a id="moretool-mode"></a>
 
 ## More tool mode (`m`, sticky `Shift+m`)
 
-* Compass: `c`
-* LaTeX: `x`
-* Setsquare: `e`, `s`
+| Action | Keys |
+|---|---|
+| Compass | `c` |
+| LaTeX | `x` |
+| Setsquare | `e`, `s` |
 
 <a id="navigation-mode"></a>
 
 ## Navigation mode (`n`, sticky `Shift+n`)
 
-* Go back to last visited page: `v`
-* Go to bottom: `d`
-* Go to first page: `f`
-* Go to last page: `e`, `Shift+f`
-* Go to top: `u`
-* Layer down: `y`
-* Layer up: `x`
-* Next annotated page: `Shift+n`
-* Previous annotated page: `Shift+p`
-* Scroll page down: `n`, `s`
-* Scroll page up: `p`, `w`
+| Action | Keys |
+|---|---|
+| Go back to last visited page | `v` |
+| Go to bottom | `d` |
+| Go to first page | `f` |
+| Go to last page | `e`, `Shift+f` |
+| Go to top | `u` |
+| Layer down | `y` |
+| Layer up | `x` |
+| Next annotated page | `Shift+n` |
+| Previous annotated page | `Shift+p` |
+| Scroll page down | `n`, `s` |
+| Scroll page up | `p`, `w` |
 
 <a id="visual-mode"></a>
 
 ## Visual mode (`v`, sticky `Shift+v`)
 
-* Select multilayer rectangle: `Shift+r`, `Shift+v`
-* Select multilayer region: `Shift+e`
-* Select object: `a`, `o`
-* Select rectangle: `r`, `v`
-* Select region: `e`
-* Vertical space: `s`
+| Action | Keys |
+|---|---|
+| Select multilayer rectangle | `Shift+r`, `Shift+v` |
+| Select multilayer region | `Shift+e` |
+| Select object | `a`, `o` |
+| Select rectangle | `r`, `v` |
+| Select region | `e` |
+| Vertical space | `s` |
 
 <a id="resize-mode"></a>
 
 ## Resize mode (`r`, sticky `Shift+r`)
 
-* Fine: `s`
-* Medium: `d`, `m`, `r`
-* Thick: `Shift+d`, `f`, `Shift+m`, `Shift+r`
-* Very fine: `a`
-* Very thick: `g`
+| Action | Keys |
+|---|---|
+| Fine | `s` |
+| Medium | `d`, `m`, `r` |
+| Thick | `Shift+d`, `f`, `Shift+m`, `Shift+r` |
+| Very fine | `a` |
+| Very thick | `g` |
 
 ## All keys by mode
 

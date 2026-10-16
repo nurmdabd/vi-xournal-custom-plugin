@@ -167,13 +167,14 @@ for _, mode in ipairs(ALL_MODES) do
     end
     io.write("\nThe *while typing* keys also work outside text boxes, in tool mode.\n")
   else
+    io.write("| Action | Keys |\n|---|---|\n")
     for _, descr in ipairs(sortedKeys(actions[mode])) do
       local keys = actions[mode][descr]
       table.sort(keys, keyOrder)
-      io.write("* " .. descr .. ": " .. formatKeys(keys) .. "\n")
+      io.write("| " .. descr .. " | " .. formatKeys(keys) .. " |\n")
     end
     if mode == "tool" and next(typingColors) then
-      io.write("* Colors while typing (`Ctrl` + F-keys): see the table in [Color mode](#" .. anchor("color") .. ")\n")
+      io.write("| Colors while typing | `Ctrl` + F-keys, see [Color mode](#" .. anchor("color") .. ") |\n")
     end
   end
   io.write("\n")
