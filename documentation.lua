@@ -114,6 +114,26 @@ local function entryKeys(mode)
   return formatKeys(entry[mode].normal), formatKeys(entry[mode].sticky)
 end
 
+-- sections with more rows than this are split into two Action | Keys
+-- column pairs, read down the left pair first, then down the right one
+local MAX_ROWS = 10
+
+local function writeActionTable(rows)
+  if #rows <= MAX_ROWS then
+    io.write("| Action | Keys |\n|---|---|\n")
+    for _, row in ipairs(rows) do
+      io.write("| " .. row[1] .. " | " .. row[2] .. " |\n")
+    end
+    return
+  end
+  local half = math.ceil(#rows / 2)
+  io.write("| Action | Keys | Action | Keys |\n|---|---|---|---|\n")
+  for i = 1, half do
+    local left, right = rows[i], rows[i + half] or {"", ""}
+    io.write("| " .. left[1] .. " | " .. left[2] .. " | " .. right[1] .. " | " .. right[2] .. " |\n")
+  end
+end
+
 local output_file = assert(io.open("keybindings.md", "w"))
 io.output(output_file)
 
@@ -167,15 +187,16 @@ for _, mode in ipairs(ALL_MODES) do
     end
     io.write("\nThe *while typing* keys also work outside text boxes, in tool mode.\n")
   else
-    io.write("| Action | Keys |\n|---|---|\n")
+    local rows = {}
     for _, descr in ipairs(sortedKeys(actions[mode])) do
       local keys = actions[mode][descr]
       table.sort(keys, keyOrder)
-      io.write("| " .. descr .. " | " .. formatKeys(keys) .. " |\n")
+      table.insert(rows, {descr, formatKeys(keys)})
     end
     if mode == "tool" and next(typingColors) then
-      io.write("| Colors while typing | `Ctrl` + F-keys, see [Color mode](#" .. anchor("color") .. ") |\n")
+      table.insert(rows, {"Colors while typing", "`Ctrl` + F-keys, see [Color mode](#" .. anchor("color") .. ")"})
     end
+    writeActionTable(rows)
   end
   io.write("\n")
 end

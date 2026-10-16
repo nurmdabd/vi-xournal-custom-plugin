@@ -29,27 +29,18 @@ tool mode), because plain letters are typed into the text.
 
 ## Tool mode (`t`)
 
-| Action | Keys |
-|---|---|
-| Bigger text font | `Ctrl+]` |
-| Compass | `Shift+o` |
-| Default tool | `d` |
-| Eraser | `e` |
-| Hand | `u` |
-| Highlighter | `g` |
-| Image | `i` |
-| New page after | `a` |
-| Pen | `w` |
-| Redo | `y` |
-| Setsquare | `Shift+e` |
-| Smaller text font | `Ctrl+[` |
-| Text | `x` |
-| Text font | `` Ctrl+` `` |
-| Undo | `z` |
-| Zoom in | `>`, `+` |
-| Zoom out | `<`, `-` |
-| Zoom to fit | `o` |
-| Colors while typing | `Ctrl` + F-keys, see [Color mode](#color-mode) |
+| Action | Keys | Action | Keys |
+|---|---|---|---|
+| Bigger text font | `Ctrl+]` | Setsquare | `Shift+e` |
+| Compass | `Shift+o` | Smaller text font | `Ctrl+[` |
+| Default tool | `d` | Text | `x` |
+| Eraser | `e` | Text font | `` Ctrl+` `` |
+| Hand | `u` | Undo | `z` |
+| Highlighter | `g` | Zoom in | `>`, `+` |
+| Image | `i` | Zoom out | `<`, `-` |
+| New page after | `a` | Zoom to fit | `o` |
+| Pen | `w` | Colors while typing | `Ctrl` + F-keys, see [Color mode](#color-mode) |
+| Redo | `y` |  |  |
 
 <a id="color-mode"></a>
 
@@ -105,25 +96,17 @@ The *while typing* keys also work outside text boxes, in tool mode.
 
 ## Page mode (`b`, `p`, sticky `Shift+b`, `Shift+p`)
 
-| Action | Keys |
-|---|---|
-| Copy page | `c` |
-| Delete layer | `Shift+y` |
-| Delete page | `x` |
-| Dotted background | `o` |
-| Graph background | `g` |
-| Isometric dotted background | `Shift+o` |
-| Isometric graph background | `Shift+g` |
-| Move page down | `d` |
-| Move page up | `u` |
-| New layer | `y` |
-| New page after | `a` |
-| New page at end | `e` |
-| New page before | `Shift+a` |
-| Plain background | `p` |
-| Ruled background | `r` |
-| Ruled with vertical line background | `v` |
-| Staves background | `s` |
+| Action | Keys | Action | Keys |
+|---|---|---|---|
+| Copy page | `c` | New layer | `y` |
+| Delete layer | `Shift+y` | New page after | `a` |
+| Delete page | `x` | New page at end | `e` |
+| Dotted background | `o` | New page before | `Shift+a` |
+| Graph background | `g` | Plain background | `p` |
+| Isometric dotted background | `Shift+o` | Ruled background | `r` |
+| Isometric graph background | `Shift+g` | Ruled with vertical line background | `v` |
+| Move page down | `d` | Staves background | `s` |
+| Move page up | `u` |  |  |
 
 <a id="file-mode"></a>
 
@@ -154,19 +137,14 @@ The *while typing* keys also work outside text boxes, in tool mode.
 
 ## Navigation mode (`n`, sticky `Shift+n`)
 
-| Action | Keys |
-|---|---|
-| Go back to last visited page | `v` |
-| Go to bottom | `d` |
-| Go to first page | `f` |
-| Go to last page | `e`, `Shift+f` |
-| Go to top | `u` |
-| Layer down | `y` |
-| Layer up | `x` |
-| Next annotated page | `Shift+n` |
-| Previous annotated page | `Shift+p` |
-| Scroll page down | `n`, `s` |
-| Scroll page up | `p`, `w` |
+| Action | Keys | Action | Keys |
+|---|---|---|---|
+| Go back to last visited page | `v` | Layer up | `x` |
+| Go to bottom | `d` | Next annotated page | `Shift+n` |
+| Go to first page | `f` | Previous annotated page | `Shift+p` |
+| Go to last page | `e`, `Shift+f` | Scroll page down | `n`, `s` |
+| Go to top | `u` | Scroll page up | `p`, `w` |
+| Layer down | `y` |  |  |
 
 <a id="visual-mode"></a>
 
