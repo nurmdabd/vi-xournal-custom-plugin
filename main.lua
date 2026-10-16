@@ -1,22 +1,15 @@
 require "keybindings"
 require "modes"
 
-f = {}
-
 function initUi()
-  index = 1
+  local index = 1
   for _, binding in pairs(keybindings) do
     for _, button in pairs(binding.buttons) do
       for _, validMode in pairs(binding.modes) do
-        declaration = "f" .. tostring(index)
-                           .. " = function () handle(\""
-                           .. button
-                           .. "\") end"
-        defineFunction = load(declaration)
-        defineFunction()
+        -- registerUi takes the *name* of a global function as callback
+        _G["f" .. tostring(index)] = function () handle(button) end
         app.registerUi({
           ["menu"]        = binding.description .. " (" .. validMode .. " mode)",
-          -- this doesn't work
           ["callback"]    = "f" .. tostring(index),
           ["accelerator"] = button
         })

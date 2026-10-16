@@ -26,7 +26,7 @@ The second principle is broken for certain colors (e.g. `o`range).
 vi-xournalpp is centered around so-called modes. They give access to different
 sets of keybindings. This makes it possible for way more commands to be easily
 accessible from a limited region on the keyboard.
-Keybindings sorted by modes can be found in [keybinginds.md](keybindings.md).
+Keybindings sorted by modes can be found in [keybindings.md](keybindings.md).
 
 You can modify keybindings by editing [keybindings.lua](keybindings.lua) in your plugin
 folder. If you want, you can then regenerate the markdown file by running
@@ -36,8 +36,9 @@ folder. If you want, you can then regenerate the markdown file by running
 The default mode is **tool** mode.
 Tool mode is used for switching between the different tools, tool thicknesses,
 modes, and history operations. Available tools are _pen_, _eraser_,
-_selection_, _highlighter_, _hand_, _tex_, _text_, _delete_, _file_.
-Available modes are **color**, **shape**, **linestyle**, **page**, **navigation**.
+_selection_, _highlighter_, _hand_, _tex_, _text_, _delete_.
+Available modes are **color**, **shape**, **linestyle**, **page**, **navigation**,
+**file**, **visual**, **resize**.
 Pressing any key in any mode other than _tool_ automatically
 returns the user to tool mode, unless the mode was made "sticky"
 by pressing `<Shift>`. E.g., to enter _sticky color mode_, press
@@ -51,7 +52,7 @@ _cyan_, _blue_, _purple_.
 
 ## Shape mode
 The **shape** mode is used to select the different shapes, _ruler_,
-_arrow_, _rectangle_, and _ellipse_.
+_arrow_, _rectangle_, _ellipse_, _spline_, and _fill_.
 
 ## Linestyle mode
 The **linestyle** mode switches between the different kinds of linestyles,
@@ -59,7 +60,9 @@ namely _plain_, _dashed_, _dotted_, _dashDotted_.
 
 ## Page mode
 The **page** mode can manipulate pages and the canvas position.
-Available actions are _copy_, _delete_, _moveUp_, _moveDown_.
+Available actions are _copy_, _delete_, _moveUp_, _moveDown_, _newBefore_,
+_newAfter_, _newLayer_, _deleteLayer_, and changing the page background
+(_ruled_, _graph_, _isometric graph_, _dotted_, _isometric dotted_, _plain_).
 The somewhat ambiguously named _moveUp_ and _moveDown_
 actually move the page around in the document
 and are not to be confused with the scrolling commands.
@@ -68,17 +71,22 @@ and are not to be confused with the scrolling commands.
 The **navigation** mode is responsible for scrolling.
 Available actions are
 _goToFirstPage_, _goToLastPage_, _goToTop_, _goToBottom_,
-_scrollPageDown_, _scrollPageUp_.
+_scrollPageDown_, _scrollPageUp_, _goBack_ (to the last visited page),
+_layerUp_, _layerDown_.
 
 ## File mode
 The **file** mode can open and write files.
-Available actions are _annotatePDF_, _exportAsPDF_.
+Available actions are _annotatePDF_, _exportAsPDF_, _save_, _saveAs_, _open_.
+
+## Visual mode
+The **visual** mode switches between the selection tools,
+_select region_ (lasso), _select rectangle_, and _select object_.
 
 ## Resize mode
 The **resize** mode can be used to change thicknesses.
 Available thicknesses are
 _very fine_, _fine_, _medium_, _thick_, _very thick_,
-accessed by `a`, `s`, `d`, `f`, `g`, respectively.
+accessed by `e`, `f`, `m`/`r`, `h`, `v`, respectively.
 
 # Configuration
 ## Keybindings
@@ -88,7 +96,7 @@ One keybinding looks something like this:
 ```
 selection = {
   description = "Selection",
-  buttons     = {"s", "v"},
+  buttons     = {"k"},
   modes       = {"tool"},
   call        = clickSelectRegion
 }

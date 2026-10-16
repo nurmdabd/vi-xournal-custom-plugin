@@ -183,7 +183,7 @@ end
 function clickGoToBottom()
   local docStructure = app.getDocumentStructure()
   local currentPage = docStructure["currentPage"]
-  local pageHeight = app.getDocumentStructure()["pages"][currentPage]["pageHeight"]
+  local pageHeight = docStructure["pages"][currentPage]["pageHeight"]
   app.scrollToPos(0, pageHeight, false)
 end
 
