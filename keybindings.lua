@@ -772,6 +772,35 @@ keybindings = {
   },
 }
 
+-- colors that also work while typing in a text box: plain letters are typed
+-- into the text, Alt + letter is not. Same letters as in color mode, except
+-- where Alt + letter opens a menu (Alt + f, e, v, n, j, t, p, h).
+local typingColors = {
+  {"<Alt>x",        "Black",       "blackColor"},
+  {"<Alt>w",        "White",       "whiteColor"},
+  {"<Alt>a",        "Gray",        "grayColor"},
+  {"<Alt>g",        "Light green", "lightGreenColor"},
+  {"<Alt><Shift>g", "Green",       "greenColor"},
+  {"<Alt>b",        "Light blue",  "lightBlueColor"},
+  {"<Alt>u",        "Blue",        "blueColor"},
+  {"<Alt>o",        "Orange",      "orangeColor"},
+  {"<Alt>r",        "Red",         "redColor"},
+  {"<Alt>y",        "Yellow",      "yellowColor"},
+  {"<Alt>s",        "Purple",      "purpleColor"},
+  {"<Alt>q",        "Pink",        "pinkColor"},
+  {"<Alt>m",        "Magenta",     "magentaColor"},
+  {"<Alt>d",        "Brown",       "brownColor"},
+}
+for _, c in ipairs(typingColors) do
+  local key, description, color = c[1], c[2], c[3]
+  keybindings["typing" .. color] = {
+    description = description,
+    buttons     = {key},
+    modes       = {"tool"},
+    call        = function() changeToolColor(_G[color]) end
+  }
+end
+
 for _, binding in pairs(keybindings) do
   -- write modifiers the same way everywhere ("<shift>e" -> "<Shift>e"),
   -- otherwise the same key would be registered twice under different names

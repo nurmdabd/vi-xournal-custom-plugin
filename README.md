@@ -58,6 +58,13 @@ The **color** mode is used to switch between the different colors,
 _black_, _white_, _gray_, _light green_, _green_, _light blue_, _blue_,
 _orange_, _red_, _yellow_, _purple_, _pink_, _magenta_, _brown_.
 
+While typing in a text box, letters are typed into the text, so color mode
+cannot be used. Use **Alt** + the color mode letter instead (`Alt+r` red,
+`Alt+b` light blue, ...). Exceptions: green is `Alt+Shift+g` and brown is
+`Alt+d`, because Alt + e, n (and f, v, j, t, p, h) open the menus.
+This changes the color of the whole text box. While typing, Xournal++ itself
+also offers `Ctrl+B` (bold) and `Ctrl++` / `Ctrl+-` (font size).
+
 ## Shape mode
 The **shape** mode is used to select the different shapes, _ruler_,
 _arrow_, _double arrow_, _rectangle_, _ellipse_, _coordinate system_,

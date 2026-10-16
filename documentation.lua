@@ -125,6 +125,8 @@ Enter a mode with **Shift** to make it **sticky**: it stays active until you pre
 A key that does nothing in a one-shot mode acts as it would in tool mode,
 a one-shot mode ends by itself after ]] .. MODE_TIMEOUT .. [[ seconds without a key press,
 and `t` returns to tool mode from every mode.
+While typing in a text box, use **Alt** + a color key (listed under tool mode),
+because plain letters are typed into the text.
 
 ]])
 
