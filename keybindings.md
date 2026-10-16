@@ -175,20 +175,6 @@ The *while typing* keys also work outside text boxes, in tool mode.
 
 | Key | Tool | Color | Shape | Linestyle | Page | File | More tool | Navigation | Visual | Resize |
 |---|---|---|---|---|---|---|---|---|---|---|
-| `Ctrl+F1` | Black |  |  |  |  |  |  |  |  |  |
-| `Ctrl+Shift+F1` | Brown |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F2` | White |  |  |  |  |  |  |  |  |  |
-| `Ctrl+Shift+F2` | Orange |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F3` | Gray |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F4` | Light green |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F5` | Green |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F6` | Light blue |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F7` | Blue |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F8` | Red |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F9` | Yellow |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F10` | Purple |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F11` | Pink |  |  |  |  |  |  |  |  |  |
-| `Ctrl+F12` | Magenta |  |  |  |  |  |  |  |  |  |
 | `a` | New page after | Gray | Arrow | Plain | New page after | Annotate PDF |  |  | Select object | Very fine |
 | `Shift+a` |  |  |  |  | New page before |  |  |  |  |  |
 | `b` | Page mode | Light blue |  |  |  |  |  |  |  |  |
@@ -236,3 +222,17 @@ The *while typing* keys also work outside text boxes, in tool mode.
 | `<` | Zoom out |  |  |  |  |  |  |  |  |  |
 | `-` | Zoom out |  |  |  |  |  |  |  |  |  |
 | `+` | Zoom in |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F1` | Black |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F2` | White |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F3` | Gray |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F4` | Light green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F5` | Green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F6` | Light blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F7` | Blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F8` | Red |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F9` | Yellow |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F10` | Purple |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F11` | Pink |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F12` | Magenta |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F1` | Brown |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F2` | Orange |  |  |  |  |  |  |  |  |  |

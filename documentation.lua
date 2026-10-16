@@ -225,7 +225,20 @@ local function sameMeaning(a, b)
   return true
 end
 
-for _, key in ipairs(sortedKeys(byKey, keyOrder)) do
+-- the Ctrl + F-key colors for typing go last, in the order of the color table
+local typingKeyOrder = {}
+for _, color in pairs(typingColors) do
+  for _, key in ipairs(color.keys) do typingKeyOrder[key] = color.order end
+end
+
+local function allKeysOrder(a, b)
+  local typingA, typingB = typingKeyOrder[a], typingKeyOrder[b]
+  if typingA and typingB then return typingA < typingB end
+  if typingA or typingB then return typingB ~= nil end
+  return keyOrder(a, b)
+end
+
+for _, key in ipairs(sortedKeys(byKey, allKeysOrder)) do
   local shifted, base = isShiftedSymbol(key)
   if shifted and byKey[base] and sameMeaning(byKey[key], byKey[base]) then goto continue end
   local cells = {}
