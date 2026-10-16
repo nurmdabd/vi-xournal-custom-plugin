@@ -246,12 +246,13 @@ end
 -- color
 function changeToolColor(color)
   -- pcall: some tools (e.g. the eraser) have no color, which raises an error
-  pcall(function()
+  local ok, err = pcall(function()
     app.changeToolColor({["color"] = color, ["selection"] = true})
 
     -- change text tool color too, because (with the default template) the TEX tool also uses that color
     app.changeToolColor({["color"] = color, ["tool"] = "TEXT"})
   end)
+  if not ok then log("changeToolColor failed: " .. tostring(err)) end
 end
 
 -- zooming
