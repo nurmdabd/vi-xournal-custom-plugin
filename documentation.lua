@@ -1,6 +1,7 @@
 -- Generates keybindings.md from keybindings.lua.
 -- Run it from the plugin folder: lua documentation.lua
 require "keybindings"
+require "modes"
 
 -- accelerator names as they should be shown to people
 local KEY_NAMES = {
@@ -8,13 +9,28 @@ local KEY_NAMES = {
   greater = ">",
   less    = "<",
   plus    = "+",
-  minus   = "-"
+  minus   = "-",
+  grave   = "`",
+  bracketleft  = "[",
+  bracketright = "]"
 }
 
+local MODIFIER_NAMES = {Shift = "Shift", Ctrl = "Ctrl", Control = "Ctrl", Primary = "Ctrl", Alt = "Alt"}
+
+-- splits "<Ctrl><Shift>a" into "Ctrl+Shift+" and "a"
+local function splitKey(key)
+  local mods = ""
+  for mod in key:gmatch("<%a+>") do mods = mods .. mod end
+  local base = key:sub(#mods + 1)
+  return mods:gsub("<(%a+)>", function(m) return (MODIFIER_NAMES[m] or m) .. "+" end), base
+end
+
 local function formatKey(key)
-  local shift, base = key:match("^(<Shift>)(.*)$")
-  base = base or key
-  return "`" .. (shift and "Shift+" or "") .. (KEY_NAMES[base] or base) .. "`"
+  local mods, base = splitKey(key)
+  local text = mods .. (KEY_NAMES[base] or base)
+  -- a key containing a backtick needs double backticks as code span delimiters
+  if text:find("`") then return "`` " .. text .. " ``" end
+  return "`" .. text .. "`"
 end
 
 -- "<Shift>plus" next to "plus" only exists because "+" needs Shift on many
@@ -37,7 +53,8 @@ end
 -- sort by the key itself, unshifted before shifted (a, <Shift>a, b, ...)
 -- letters first, then named keys (Space, >, +, ...)
 local function sortName(key)
-  local base = key:gsub("^<Shift>", "")
+  local _, base = splitKey(key)
+  base = base:gsub("%d+", function(n) return string.format("%03d", tonumber(n)) end)  -- F2 before F10
   return KEY_NAMES[base] and ("~" .. base) or base
 end
 
@@ -56,6 +73,15 @@ end
 
 local function capitalize(s)
   return s:sub(1, 1):upper() .. s:sub(2)
+end
+
+-- "moreTool" -> "More tool"
+local function modeName(mode)
+  return capitalize(mode:gsub("(%u)", function(c) return " " .. c:lower() end))
+end
+
+local function anchor(mode)
+  return mode:lower() .. "-mode"
 end
 
 -- actions per mode (mode switches are listed separately), and the keys that enter each mode
@@ -98,7 +124,10 @@ vi-xournalpp starts in **tool mode**. Press a mode key to enter another mode:
 the next key runs one action there and takes you back to tool mode.
 Enter a mode with **Shift** to make it **sticky**: it stays active until you press `t`.
 A key that does nothing in a one-shot mode acts as it would in tool mode,
+a one-shot mode ends by itself after ]] .. MODE_TIMEOUT .. [[ seconds without a key press,
 and `t` returns to tool mode from every mode.
+While typing in a text box, change the color with **Ctrl + F-keys** (listed under
+tool mode), because plain letters are typed into the text.
 
 ]])
 
@@ -106,17 +135,17 @@ and `t` returns to tool mode from every mode.
 io.write("| Mode | Enter | Sticky |\n|---|---|---|\n")
 for _, mode in ipairs(ALL_MODES) do
   local normal, sticky = entryKeys(mode)
-  io.write("| [" .. capitalize(mode) .. "](#" .. mode .. "-mode) | " .. normal .. " | " .. sticky .. " |\n")
+  io.write("| [" .. modeName(mode) .. "](#" .. anchor(mode) .. ") | " .. normal .. " | " .. sticky .. " |\n")
 end
 io.write("\n")
 
 -- one section per mode, entries sorted alphabetically, so the output is stable
 for _, mode in ipairs(ALL_MODES) do
   local normal, sticky = entryKeys(mode)
-  local heading = capitalize(mode) .. " mode (" .. normal
+  local heading = modeName(mode) .. " mode (" .. normal
   if sticky ~= "" then heading = heading .. ", sticky " .. sticky end
   -- the explicit anchor keeps the overview links working despite the keys in the heading
-  io.write('<a id="' .. mode .. '-mode"></a>\n\n')
+  io.write('<a id="' .. anchor(mode) .. '"></a>\n\n')
   io.write("## " .. heading .. ")\n\n")
   for _, descr in ipairs(sortedKeys(actions[mode])) do
     local keys = actions[mode][descr]
@@ -138,7 +167,7 @@ for _, binding in pairs(keybindings) do
 end
 
 local columns = {}
-for _, mode in ipairs(ALL_MODES) do table.insert(columns, capitalize(mode)) end
+for _, mode in ipairs(ALL_MODES) do table.insert(columns, modeName(mode)) end
 
 io.write("## All keys by mode\n\n")
 io.write("| Key | " .. table.concat(columns, " | ") .. " |\n")

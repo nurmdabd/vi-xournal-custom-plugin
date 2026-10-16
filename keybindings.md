@@ -7,16 +7,20 @@ vi-xournalpp starts in **tool mode**. Press a mode key to enter another mode:
 the next key runs one action there and takes you back to tool mode.
 Enter a mode with **Shift** to make it **sticky**: it stays active until you press `t`.
 A key that does nothing in a one-shot mode acts as it would in tool mode,
+a one-shot mode ends by itself after 5 seconds without a key press,
 and `t` returns to tool mode from every mode.
+While typing in a text box, change the color with **Ctrl + F-keys** (listed under
+tool mode), because plain letters are typed into the text.
 
 | Mode | Enter | Sticky |
 |---|---|---|
 | [Tool](#tool-mode) | `t` |  |
 | [Color](#color-mode) | `c` | `Shift+c` |
 | [Shape](#shape-mode) | `s` | `Shift+s` |
-| [Linestyle](#linestyle-mode) | `l`, `q` | `Shift+l` |
+| [Linestyle](#linestyle-mode) | `q` | `Shift+q` |
 | [Page](#page-mode) | `b`, `p` | `Shift+b`, `Shift+p` |
 | [File](#file-mode) | `f` | `Shift+f` |
+| [More tool](#moretool-mode) | `m` | `Shift+m` |
 | [Navigation](#navigation-mode) | `n` | `Shift+n` |
 | [Visual](#visual-mode) | `v` | `Shift+v` |
 | [Resize](#resize-mode) | `r` | `Shift+r` |
@@ -25,32 +29,54 @@ and `t` returns to tool mode from every mode.
 
 ## Tool mode (`t`)
 
-* Annotate PDF: `o`
-* Delete: `x`
+* Bigger text font: `Ctrl+]`
+* Black: `Ctrl+F1`
+* Blue: `Ctrl+F7`
+* Brown: `Ctrl+Shift+F1`
+* Compass: `Shift+o`
+* Default tool: `d`
 * Eraser: `e`
-* Hand: `Space`
-* Highlighter: `h`
-* LaTeX: `i`
+* Gray: `Ctrl+F3`
+* Green: `Ctrl+F5`
+* Hand: `u`
+* Highlighter: `g`
+* Image: `i`
+* Light blue: `Ctrl+F6`
+* Light green: `Ctrl+F4`
+* Magenta: `Ctrl+F12`
 * New page after: `a`
+* Orange: `Ctrl+Shift+F2`
 * Pen: `w`
+* Pink: `Ctrl+F11`
+* Purple: `Ctrl+F10`
+* Red: `Ctrl+F8`
 * Redo: `y`
-* Selection: `k`
-* Text: `Shift+i`, `Shift+t`
-* Undo: `d`, `u`, `z`
+* Setsquare: `Shift+e`
+* Smaller text font: `Ctrl+[`
+* Text: `x`
+* Text font: `` Ctrl+` ``
+* Undo: `z`
+* White: `Ctrl+F2`
+* Yellow: `Ctrl+F9`
 * Zoom in: `>`, `+`
 * Zoom out: `<`, `-`
+* Zoom to fit: `o`
 
 <a id="color-mode"></a>
 
 ## Color mode (`c`, sticky `Shift+c`)
 
 * Black: `x`
-* Blue: `b`
-* Cyan: `c`
-* Green: `g`
-* Orange: `o`
-* Pink: `q`
-* Purple: `a`, `p`
+* Blue: `Shift+b`, `u`
+* Brown: `n`
+* Gray: `a`, `Shift+x`
+* Green: `e`, `Shift+g`
+* Light blue: `b`
+* Light green: `g`
+* Magenta: `m`
+* Orange: `c`, `o`
+* Pink: `i`, `q`
+* Purple: `p`, `s`
 * Red: `r`
 * White: `w`
 * Yellow: `y`
@@ -60,127 +86,166 @@ and `t` returns to tool mode from every mode.
 ## Shape mode (`s`, sticky `Shift+s`)
 
 * Arrow: `a`
+* Coordinate system: `c`
+* Double arrow: `d`
 * Ellipse: `e`
 * Fill: `f`
-* Rectangle: `c`, `r`
-* Ruler: `s`
-* Spline: `b`
+* Rectangle: `r`
+* Ruler: `s`, `u`
+* Shape recogniser: `g`
+* Spline: `p`, `q`
 
 <a id="linestyle-mode"></a>
 
-## Linestyle mode (`l`, `q`, sticky `Shift+l`)
+## Linestyle mode (`q`, sticky `Shift+q`)
 
-* Dash-dotted: `a`, `h`
-* Dashed: `d`
-* Dotted: `o`
-* Plain: `l`, `p`
+* Dash-dotted: `f`
+* Dashed: `s`
+* Dotted: `d`
+* Plain: `a`, `p`
 
 <a id="page-mode"></a>
 
 ## Page mode (`b`, `p`, sticky `Shift+b`, `Shift+p`)
 
 * Copy page: `c`
-* Delete layer: `x`
-* Delete page: `d`
-* Dotted background: `v`
+* Delete layer: `Shift+y`
+* Delete page: `x`
+* Dotted background: `o`
 * Graph background: `g`
-* Isometric dotted background: `b`
-* Isometric graph background: `r`
-* Move page down: `s`
-* Move page up: `w`
+* Isometric dotted background: `Shift+o`
+* Isometric graph background: `Shift+g`
+* Move page down: `d`
+* Move page up: `u`
 * New layer: `y`
 * New page after: `a`
+* New page at end: `e`
 * New page before: `Shift+a`
-* Plain background: `n`
-* Ruled background: `f`
+* Plain background: `p`
+* Ruled background: `r`
+* Ruled with vertical line background: `v`
+* Staves background: `s`
 
 <a id="file-mode"></a>
 
 ## File mode (`f`, sticky `Shift+f`)
 
-* Annotate PDF: `a`, `o`
+* Annotate PDF: `a`
 * Export as PDF: `e`
-* Open file: `f`
+* New file: `n`
+* Open file: `o`
+* Print: `p`
+* Quit: `q`
 * Save file: `s`, `w`
 * Save file as: `Shift+s`, `Shift+w`
+
+<a id="moretool-mode"></a>
+
+## More tool mode (`m`, sticky `Shift+m`)
+
+* Compass: `c`
+* LaTeX: `x`
+* Setsquare: `e`, `s`
 
 <a id="navigation-mode"></a>
 
 ## Navigation mode (`n`, sticky `Shift+n`)
 
-* Go back to last visited page: `a`
-* Go to bottom: `b`
-* Go to first page: `g`
-* Go to last page: `e`, `Shift+g`
-* Go to top: `Shift+b`
-* Layer down: `x`
-* Layer up: `y`
-* Scroll page down: `s`
-* Scroll page up: `w`
+* Go back to last visited page: `v`
+* Go to bottom: `d`
+* Go to first page: `f`
+* Go to last page: `e`, `Shift+f`
+* Go to top: `u`
+* Layer down: `y`
+* Layer up: `x`
+* Next annotated page: `Shift+n`
+* Previous annotated page: `Shift+p`
+* Scroll page down: `n`, `s`
+* Scroll page up: `p`, `w`
 
 <a id="visual-mode"></a>
 
 ## Visual mode (`v`, sticky `Shift+v`)
 
-* Select object: `o`
+* Select multilayer rectangle: `Shift+r`, `Shift+v`
+* Select multilayer region: `Shift+e`
+* Select object: `a`, `o`
 * Select rectangle: `r`, `v`
 * Select region: `e`
+* Vertical space: `s`
 
 <a id="resize-mode"></a>
 
 ## Resize mode (`r`, sticky `Shift+r`)
 
-* Fine: `f`
-* Medium: `m`, `r`
-* Thick: `h`
-* Very fine: `e`
-* Very thick: `v`
+* Fine: `s`
+* Medium: `d`, `m`, `r`
+* Thick: `Shift+d`, `f`, `Shift+m`, `Shift+r`
+* Very fine: `a`
+* Very thick: `g`
 
 ## All keys by mode
 
-| Key | Tool | Color | Shape | Linestyle | Page | File | Navigation | Visual | Resize |
-|---|---|---|---|---|---|---|---|---|---|
-| `a` | New page after | Purple | Arrow | Dash-dotted | New page after | Annotate PDF | Go back to last visited page |  |  |
-| `Shift+a` |  |  |  |  | New page before |  |  |  |  |
-| `b` | Page mode | Blue | Spline |  | Isometric dotted background |  | Go to bottom |  |  |
-| `Shift+b` | Sticky page mode |  |  |  |  |  | Go to top |  |  |
-| `c` | Color mode | Cyan | Rectangle |  | Copy page |  |  |  |  |
-| `Shift+c` | Sticky color mode |  |  |  |  |  |  |  |  |
-| `d` | Undo |  |  | Dashed | Delete page |  |  |  |  |
-| `e` | Eraser |  | Ellipse |  |  | Export as PDF | Go to last page | Select region | Very fine |
-| `f` | File mode |  | Fill |  | Ruled background | Open file |  |  | Fine |
-| `Shift+f` | Sticky file mode |  |  |  |  |  |  |  |  |
-| `g` |  | Green |  |  | Graph background |  | Go to first page |  |  |
-| `Shift+g` |  |  |  |  |  |  | Go to last page |  |  |
-| `h` | Highlighter |  |  | Dash-dotted |  |  |  |  | Thick |
-| `i` | LaTeX |  |  |  |  |  |  |  |  |
-| `Shift+i` | Text |  |  |  |  |  |  |  |  |
-| `k` | Selection |  |  |  |  |  |  |  |  |
-| `l` | Linestyle mode |  |  | Plain |  |  |  |  |  |
-| `Shift+l` | Sticky linestyle mode |  |  |  |  |  |  |  |  |
-| `m` |  |  |  |  |  |  |  |  | Medium |
-| `n` | Navigation mode |  |  |  | Plain background |  |  |  |  |
-| `Shift+n` | Sticky navigation mode |  |  |  |  |  |  |  |  |
-| `o` | Annotate PDF | Orange |  | Dotted |  | Annotate PDF |  | Select object |  |
-| `p` | Page mode | Purple |  | Plain |  |  |  |  |  |
-| `Shift+p` | Sticky page mode |  |  |  |  |  |  |  |  |
-| `q` | Linestyle mode | Pink |  |  |  |  |  |  |  |
-| `r` | Resize mode | Red | Rectangle |  | Isometric graph background |  |  | Select rectangle | Medium |
-| `Shift+r` | Sticky resize mode |  |  |  |  |  |  |  |  |
-| `s` | Shape mode |  | Ruler |  | Move page down | Save file | Scroll page down |  |  |
-| `Shift+s` | Sticky shape mode |  |  |  |  | Save file as |  |  |  |
-| `t` | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode |
-| `Shift+t` | Text |  |  |  |  |  |  |  |  |
-| `u` | Undo |  |  |  |  |  |  |  |  |
-| `v` | Visual mode |  |  |  | Dotted background |  |  | Select rectangle | Very thick |
-| `Shift+v` | Sticky visual mode |  |  |  |  |  |  |  |  |
-| `w` | Pen | White |  |  | Move page up | Save file | Scroll page up |  |  |
-| `Shift+w` |  |  |  |  |  | Save file as |  |  |  |
-| `x` | Delete | Black |  |  | Delete layer |  | Layer down |  |  |
-| `y` | Redo | Yellow |  |  | New layer |  | Layer up |  |  |
-| `z` | Undo |  |  |  |  |  |  |  |  |
-| `>` | Zoom in |  |  |  |  |  |  |  |  |
-| `<` | Zoom out |  |  |  |  |  |  |  |  |
-| `-` | Zoom out |  |  |  |  |  |  |  |  |
-| `+` | Zoom in |  |  |  |  |  |  |  |  |
-| `Space` | Hand |  |  |  |  |  |  |  |  |
+| Key | Tool | Color | Shape | Linestyle | Page | File | More tool | Navigation | Visual | Resize |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `Ctrl+F1` | Black |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F1` | Brown |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F2` | White |  |  |  |  |  |  |  |  |  |
+| `Ctrl+Shift+F2` | Orange |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F3` | Gray |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F4` | Light green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F5` | Green |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F6` | Light blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F7` | Blue |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F8` | Red |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F9` | Yellow |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F10` | Purple |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F11` | Pink |  |  |  |  |  |  |  |  |  |
+| `Ctrl+F12` | Magenta |  |  |  |  |  |  |  |  |  |
+| `a` | New page after | Gray | Arrow | Plain | New page after | Annotate PDF |  |  | Select object | Very fine |
+| `Shift+a` |  |  |  |  | New page before |  |  |  |  |  |
+| `b` | Page mode | Light blue |  |  |  |  |  |  |  |  |
+| `Shift+b` | Sticky page mode | Blue |  |  |  |  |  |  |  |  |
+| `c` | Color mode | Orange | Coordinate system |  | Copy page |  | Compass |  |  |  |
+| `Shift+c` | Sticky color mode |  |  |  |  |  |  |  |  |  |
+| `d` | Default tool |  | Double arrow | Dotted | Move page down |  |  | Go to bottom |  | Medium |
+| `Shift+d` |  |  |  |  |  |  |  |  |  | Thick |
+| `e` | Eraser | Green | Ellipse |  | New page at end | Export as PDF | Setsquare | Go to last page | Select region |  |
+| `Shift+e` | Setsquare |  |  |  |  |  |  |  | Select multilayer region |  |
+| `f` | File mode |  | Fill | Dash-dotted |  |  |  | Go to first page |  | Thick |
+| `Shift+f` | Sticky file mode |  |  |  |  |  |  | Go to last page |  |  |
+| `g` | Highlighter | Light green | Shape recogniser |  | Graph background |  |  |  |  | Very thick |
+| `Shift+g` |  | Green |  |  | Isometric graph background |  |  |  |  |  |
+| `i` | Image | Pink |  |  |  |  |  |  |  |  |
+| `m` | More tool mode | Magenta |  |  |  |  |  |  |  | Medium |
+| `Shift+m` | Sticky more tool mode |  |  |  |  |  |  |  |  | Thick |
+| `n` | Navigation mode | Brown |  |  |  | New file |  | Scroll page down |  |  |
+| `Shift+n` | Sticky navigation mode |  |  |  |  |  |  | Next annotated page |  |  |
+| `o` | Zoom to fit | Orange |  |  | Dotted background | Open file |  |  | Select object |  |
+| `Shift+o` | Compass |  |  |  | Isometric dotted background |  |  |  |  |  |
+| `p` | Page mode | Purple | Spline | Plain | Plain background | Print |  | Scroll page up |  |  |
+| `Shift+p` | Sticky page mode |  |  |  |  |  |  | Previous annotated page |  |  |
+| `q` | Linestyle mode | Pink | Spline |  |  | Quit |  |  |  |  |
+| `Shift+q` | Sticky linestyle mode |  |  |  |  |  |  |  |  |  |
+| `r` | Resize mode | Red | Rectangle |  | Ruled background |  |  |  | Select rectangle | Medium |
+| `Shift+r` | Sticky resize mode |  |  |  |  |  |  |  | Select multilayer rectangle | Thick |
+| `s` | Shape mode | Purple | Ruler | Dashed | Staves background | Save file | Setsquare | Scroll page down | Vertical space | Fine |
+| `Shift+s` | Sticky shape mode |  |  |  |  | Save file as |  |  |  |  |
+| `t` | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode | Tool mode |
+| `u` | Hand | Blue | Ruler |  | Move page up |  |  | Go to top |  |  |
+| `v` | Visual mode |  |  |  | Ruled with vertical line background |  |  | Go back to last visited page | Select rectangle |  |
+| `Shift+v` | Sticky visual mode |  |  |  |  |  |  |  | Select multilayer rectangle |  |
+| `w` | Pen | White |  |  |  | Save file |  | Scroll page up |  |  |
+| `Shift+w` |  |  |  |  |  | Save file as |  |  |  |  |
+| `x` | Text | Black |  |  | Delete page |  | LaTeX | Layer up |  |  |
+| `Shift+x` |  | Gray |  |  |  |  |  |  |  |  |
+| `y` | Redo | Yellow |  |  | New layer |  |  | Layer down |  |  |
+| `Shift+y` |  |  |  |  | Delete layer |  |  |  |  |  |
+| `z` | Undo |  |  |  |  |  |  |  |  |  |
+| `Ctrl+[` | Smaller text font |  |  |  |  |  |  |  |  |  |
+| `Ctrl+]` | Bigger text font |  |  |  |  |  |  |  |  |  |
+| `` Ctrl+` `` | Text font |  |  |  |  |  |  |  |  |  |
+| `>` | Zoom in |  |  |  |  |  |  |  |  |  |
+| `<` | Zoom out |  |  |  |  |  |  |  |  |  |
+| `-` | Zoom out |  |  |  |  |  |  |  |  |  |
+| `+` | Zoom in |  |  |  |  |  |  |  |  |  |

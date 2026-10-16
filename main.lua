@@ -1,6 +1,8 @@
 require "keybindings"
 require "modes"
 
+log("Plugin started")
+
 function initUi()
   -- collect what every key does in each mode, so that each key gets
   -- a single menu entry, e.g. "e: Ellipse [shape], Eraser [tool], ..."
