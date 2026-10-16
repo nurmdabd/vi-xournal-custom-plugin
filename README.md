@@ -31,8 +31,8 @@ accessible from a limited region on the keyboard.
 Keybindings sorted by modes can be found in [keybindings.md](keybindings.md).
 
 You can modify keybindings by editing [keybindings.lua](keybindings.lua) in your plugin
-folder. If you want, you can then regenerate the markdown file by running
-[documentation.lua](documentation.lua) using your local lua interpreter.
+folder. Then regenerate the markdown file by running `lua documentation.lua`
+in the plugin folder.
 
 ## Tool Mode
 The default mode is **tool** mode.
@@ -91,6 +91,7 @@ The **resize** mode can be used to change thicknesses.
 Available thicknesses are
 _very fine_, _fine_, _medium_, _thick_, _very thick_,
 accessed by `e`, `f`, `m`/`r`, `h`, `v`, respectively.
+Enter it with `r`, or `<Shift>r` for sticky resize mode.
 
 # Configuration
 ## Keybindings
@@ -132,7 +133,17 @@ yellowColor = 0xe9f23a
 A mode `newMode` needs the following
 
 1. An entry `"newMode"` in the `ALL_MODES` list in `keybindings.lua`,
-2. A `newMode` keybinding in the `keybindings` list.
+2. A keybinding with `enters = "newMode"` in the `keybindings` list
+   (add `sticky = true` for a sticky variant), e.g.
+
+```lua
+newMode = {
+  description = "New mode",
+  buttons     = {"m"},
+  modes       = {"tool"},
+  enters      = "newMode"
+},
+```
 
 ## New Keybindings
 vi-xournalpp currently does not cover the full API. To add another entry,
