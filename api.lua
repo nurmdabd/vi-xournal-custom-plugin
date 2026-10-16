@@ -116,6 +116,39 @@ function clickHand()
   selectTool("hand", "ACTION_TOOL_HAND")
 end
 
+function clickImage()
+  selectTool("image", "ACTION_TOOL_IMAGE")
+end
+
+function clickTextFont()
+  activate("select-font", "ACTION_SELECT_FONT")
+end
+
+function clickDefaultTool()
+  activate("select-default-tool", "ACTION_TOOL_DEFAULT")
+end
+
+function clickSelectMultilayerRectangle()
+  selectTool("selectMultiLayerRect", "ACTION_TOOL_SELECT_MULTILAYER_RECT")
+end
+
+function clickSelectMultilayerRegion()
+  selectTool("selectMultiLayerRegion", "ACTION_TOOL_SELECT_MULTILAYER_REGION")
+end
+
+function clickVerticalSpace()
+  selectTool("verticalSpace", "ACTION_TOOL_VERTICAL_SPACE")
+end
+
+-- geometry tools: each press shows / hides them
+function clickSetsquare()
+  activate("setsquare", "ACTION_SETSQUARE")
+end
+
+function clickCompass()
+  activate("compass", "ACTION_COMPASS")
+end
+
 function clickDelete()
   activate("delete", "ACTION_DELETE")
 end
@@ -128,6 +161,18 @@ end
 
 function clickArrow(enabled)
   toggle("tool-draw-arrow", enabled, "ACTION_TOOL_DRAW_ARROW")
+end
+
+function clickDoubleArrow(enabled)
+  toggle("tool-draw-double-arrow", enabled, "ACTION_TOOL_DRAW_DOUBLE_ARROW")
+end
+
+function clickCoordinateSystem(enabled)
+  toggle("tool-draw-coordinate-system", enabled, "ACTION_TOOL_DRAW_COORDINATE_SYSTEM")
+end
+
+function clickShapeRecogniser(enabled)
+  toggle("tool-draw-shape-recognizer", enabled, "ACTION_SHAPE_RECOGNIZER")
 end
 
 function clickEllipse(enabled)
@@ -166,10 +211,13 @@ end
 
 -- color
 function changeToolColor(color)
-  app.changeToolColor({["color"] = color, ["selection"] = true})
+  -- pcall: some tools (e.g. the eraser) have no color, which raises an error
+  pcall(function()
+    app.changeToolColor({["color"] = color, ["selection"] = true})
 
-  -- change text tool color too, because (with the default template) the TEX tool also uses that color
-  app.changeToolColor({["color"] = color, ["tool"] = "TEXT"})
+    -- change text tool color too, because (with the default template) the TEX tool also uses that color
+    app.changeToolColor({["color"] = color, ["tool"] = "TEXT"})
+  end)
 end
 
 -- zooming
@@ -181,10 +229,22 @@ function clickZoomOut()
   activate("zoom-out", "ACTION_ZOOM_OUT")
 end
 
+function clickZoomToFit()
+  activate("zoom-fit", "ACTION_ZOOM_FIT")
+end
+
 
 -- page
 function clickCopyPage()
   pageAction("duplicate-page", "COPY")
+end
+
+function clickDuplicatePage()
+  activate("duplicate-page", "ACTION_DUPLICATE_PAGE")
+end
+
+function clickNewPageAtEnd()
+  activate("new-page-at-end", "ACTION_NEW_PAGE_AT_END")
 end
 
 function clickDeletePage()
@@ -264,6 +324,14 @@ function clickLayerUp()
   activate("layer-goto-next", "ACTION_GOTO_NEXT_LAYER")
 end
 
+function clickPreviousAnnotatedPage()
+  activate("goto-previous-annotated-page", "ACTION_GOTO_PREVIOUS_ANNOTATED_PAGE")
+end
+
+function clickNextAnnotatedPage()
+  activate("goto-next-annotated-page", "ACTION_GOTO_NEXT_ANNOTATED_PAGE")
+end
+
 
 -- history
 function clickUndo()
@@ -276,6 +344,10 @@ end
 
 
 -- files
+function clickNewFile()
+  activate("new-file", "ACTION_NEW")
+end
+
 function clickAnnotatePDF()
   activate("annotate-pdf", "ACTION_ANNOTATE_PDF")
 end
@@ -296,9 +368,25 @@ function clickOpen()
   activate("open", "ACTION_OPEN")
 end
 
+function clickPrint()
+  activate("print", "ACTION_PRINT")
+end
+
+function clickQuit()
+  activate("quit", "ACTION_QUIT")
+end
+
 -- background
 function clickRuledBG()
   app.changeCurrentPageBackground("ruled");
+end
+
+function clickRuledWithVerticalLineBG()
+  app.changeCurrentPageBackground("lined");
+end
+
+function clickStavesBG()
+  app.changeCurrentPageBackground("staves");
 end
 
 function clickGraphBG()
